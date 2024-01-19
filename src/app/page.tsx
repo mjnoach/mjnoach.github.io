@@ -17,8 +17,8 @@ export default function Home() {
             Andrzej Sienkiewicz
           </h1>
           <Image
-            className="relative"
-            src="/itx.svg"
+            className="relative my-10"
+            src="/itx.png"
             alt="Logo"
             width={180}
             height={37}
