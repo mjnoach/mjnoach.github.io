@@ -1,8 +1,15 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import localFont from "next/font/local"
 import './globals.css'
+import { cn } from '@/lib/utils'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const fontHeading = localFont({
+  src: "../../assets/fonts/CalSans-SemiBold.woff2",
+  variable: "--font-heading",
+})
 
 export const metadata: Metadata = {
   title: 'ITX Andrzej Sienkiewicz',
@@ -16,7 +23,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          inter.className,
+          fontHeading.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   )
 }
