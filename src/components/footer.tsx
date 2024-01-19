@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer className="border-t">
       <div className="container text-center py-10 md:py-5 space-y-4">
         <div className="text-muted">
-          Illustrations by{" "}
+          Illustrations by{' '}
           <a
             href="https://popsy.co"
             target="_blank"
@@ -27,5 +27,5 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
         </div>
       </div>
     </footer>
-  );
+  )
 }
