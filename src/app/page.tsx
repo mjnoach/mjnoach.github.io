@@ -89,23 +89,6 @@ export default function Home() {
         </h2>
         <div className='grid max-w-[800px] items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]'></div>
       </section>
-
-      <hr className="w-full"></hr>
-
-      <footer>
-        <div className='container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0'>
-          <Image
-            className="relative"
-            src="/itx.svg"
-            alt="Logo"
-            width={35}
-            height={35}
-          />
-          <span className=''>
-            © 2024 Andrzej Sienkiewicz
-          </span>
-        </div>
-      </footer>
     </main>
   )
 }
