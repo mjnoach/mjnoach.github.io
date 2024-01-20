@@ -1,5 +1,7 @@
 'use client'
 
+import { Mail, Phone } from 'lucide-react'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -10,6 +12,7 @@ import {
 } from '@/components/menu-animation'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
+import { Button } from '@/components/ui/button'
 
 export default function Home() {
   const menuAnimationScope = useMenuAnimation()
@@ -124,7 +127,21 @@ export default function Home() {
 
       <section id="contact" className="container min-h-screen p-24">
         <h2 className="mb-8 font-heading text-5xl font-medium">Contact</h2>
-        <div className="h-[200px] max-w-[800px] gap-10 rounded-lg border p-4"></div>
+        <div className="max-w-[800px] gap-10 rounded-lg border p-4">
+          <div className="h-[200px]" />
+          <div className="flex justify-end gap-5">
+            <ButtonAnimation>
+              <Button>
+                <Mail className="h-4 w-4" />
+              </Button>
+            </ButtonAnimation>
+            <ButtonAnimation>
+              <Button>
+                <Phone className="h-4 w-4" />
+              </Button>
+            </ButtonAnimation>
+          </div>
+        </div>
       </section>
     </main>
   )
