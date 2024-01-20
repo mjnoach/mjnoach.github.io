@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { MenuAnimation } from '@/components/menu-animation'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
 
 export default function Home() {
@@ -20,15 +21,21 @@ export default function Home() {
           />
         </div>
         <div className="flex items-center justify-between">
-          <ul className="mt-32 space-y-4 text-2xl">
+          <ul className="mt-32 space-y-5 text-2xl">
             <li>
-              <a href="#about">→ About</a>
+              <MenuAnimation>
+                <a href="#about">About</a>
+              </MenuAnimation>
             </li>
             <li>
-              <a href="#portfolio">→ Portfolio</a>
+              <MenuAnimation>
+                <a href="#portfolio">Portfolio</a>
+              </MenuAnimation>
             </li>
             <li>
-              <a href="#contact">→ Contact</a>
+              <MenuAnimation>
+                <a href="#contact">Contact</a>
+              </MenuAnimation>
             </li>
           </ul>
           <Image
@@ -41,28 +48,31 @@ export default function Home() {
           />
         </div>
       </section>
+      <hr className="w-full" />
 
       <section
         id="about"
         className="container relative min-h-screen place-items-center p-24"
       >
-        <h2 className="mb-6 font-heading text-5xl font-medium">About</h2>
+        <h2 className="mb-8 font-heading text-5xl font-medium">About</h2>
         <div className="grid max-w-[800px] items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]"></div>
       </section>
+      <hr className="w-full" />
 
       <section
         id="portfolio"
         className="container relative min-h-screen place-items-center p-24"
       >
-        <h2 className="mb-6 font-heading text-5xl font-medium">Portfolio</h2>
+        <h2 className="mb-8 font-heading text-5xl font-medium">Portfolio</h2>
         <PortfolioCarousel />
       </section>
+      <hr className="w-full" />
 
       <section
         id="contact"
         className="container relative min-h-screen place-items-center p-24"
       >
-        <h2 className="mb-6 font-heading text-5xl font-medium">Contact</h2>
+        <h2 className="mb-8 font-heading text-5xl font-medium">Contact</h2>
         <div className="grid max-w-[800px] items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]"></div>
       </section>
     </main>
