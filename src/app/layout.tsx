@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 
 import { Footer } from '@/components/footer'
+import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from '@/lib/utils'
 
 import './globals.css'
@@ -27,8 +28,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, fontHeading.variable)}>
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { MenuAnimation } from '@/components/menu-animation'
+import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
 
 export default function Home() {
@@ -8,6 +9,9 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <section className="container relative min-h-screen place-items-center p-24">
         <div className="flex flex-col">
+          <div className="absolute right-0 top-0 mr-10 mt-10">
+            <ModeToggle />
+          </div>
           <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
             Andrzej Sienkiewicz
           </h1>
@@ -39,7 +43,7 @@ export default function Home() {
             </li>
           </ul>
           <Image
-            className="relative invert"
+            className="relative dark:invert"
             src="https://illustrations.popsy.co/white/app-launch.svg"
             alt="Illustration"
             width={320}

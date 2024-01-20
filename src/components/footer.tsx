@@ -4,7 +4,7 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer className="border-t">
       <div className="container space-y-4 py-10 text-center md:py-5">
-        <div className="text-muted">
+        <div className="text-muted-foreground dark:text-muted">
           Illustrations by{' '}
           <a
             href="https://popsy.co"
