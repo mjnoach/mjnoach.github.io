@@ -19,11 +19,11 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <section className="container min-h-screen p-24">
+      <section className="container flex min-h-screen flex-col p-24">
+        <div className="absolute right-0 top-0 mr-10 mt-10">
+          <ModeToggle />
+        </div>
         <div className="flex flex-col">
-          <div className="absolute right-0 top-0 mr-10 mt-10">
-            <ModeToggle />
-          </div>
           <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
             Andrzej Sienkiewicz
           </h1>
@@ -36,19 +36,19 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex grow flex-col items-center justify-evenly gap-16 md:flex-row md:justify-between md:gap-0">
           <ul
-            className="mt-32 space-y-5 font-heading text-2xl"
+            className="mt-16 space-y-5 font-heading text-2xl md:mt-36"
             ref={menuAnimationScope}
           >
             <li>
               <MenuHoverAnimation>
-                <Link href="#about">About</Link>
+                <Link href="#portfolio">Portfolio</Link>
               </MenuHoverAnimation>
             </li>
             <li>
               <MenuHoverAnimation>
-                <Link href="#portfolio">Portfolio</Link>
+                <Link href="#about">About</Link>
               </MenuHoverAnimation>
             </li>
             <li>
@@ -69,9 +69,15 @@ export default function Home() {
       </section>
       <hr className="w-full" />
 
+      <section id="portfolio" className="container p-24">
+        <h2 className="mb-8 font-heading text-5xl font-medium">Portfolio</h2>
+        <PortfolioCarousel />
+      </section>
+      <hr className="w-full" />
+
       <section id="about" className="container p-24">
         <h2 className="mb-8 font-heading text-5xl font-medium">About</h2>
-        <div className="flex max-w-[800px] flex-col gap-8 rounded-lg border p-4">
+        <div className="mx-auto flex max-w-[800px] flex-col gap-8 rounded-lg border p-4">
           <p className="p-4 text-justify text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -119,16 +125,14 @@ export default function Home() {
       </section>
       <hr className="w-full" />
 
-      <section id="portfolio" className="container p-24">
-        <h2 className="mb-8 font-heading text-5xl font-medium">Portfolio</h2>
-        <PortfolioCarousel />
-      </section>
-      <hr className="w-full" />
-
-      <section id="contact" className="container min-h-screen p-24">
+      <section id="contact" className="container p-24">
         <h2 className="mb-8 font-heading text-5xl font-medium">Contact</h2>
-        <div className="max-w-[800px] gap-10 rounded-lg border p-4">
-          <div className="h-[200px]" />
+        <div className="mx-auto flex max-w-[800px] flex-col gap-8 rounded-lg border p-4">
+          <p className="p-4 text-justify text-lg">
+            Let us cross paths - reach out and we’ll work on your next project
+            together.
+          </p>
+          <div className="h-[100px]" />
           <div className="flex justify-end gap-5">
             <ButtonAnimation>
               <Button>

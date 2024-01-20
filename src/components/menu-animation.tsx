@@ -21,6 +21,9 @@ export function useMenuAnimation() {
   return scope
 }
 
+// interface ___ extends React.HTMLAttributes<HTMLDivElement> {
+// }
+
 export function MenuHoverAnimation({
   className,
   children,
