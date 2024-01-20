@@ -1,10 +1,17 @@
+'use client'
+
 import Image from 'next/image'
 
-import { MenuAnimation } from '@/components/menu-animation'
+import {
+  MenuHoverAnimation,
+  useMenuAnimation,
+} from '@/components/menu-animation'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
 
 export default function Home() {
+  const menuAnimationScope = useMenuAnimation()
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <section className="container relative min-h-screen place-items-center p-24">
@@ -25,21 +32,21 @@ export default function Home() {
           />
         </div>
         <div className="flex items-center justify-between">
-          <ul className="mt-32 space-y-5 text-2xl">
+          <ul className="mt-32 space-y-5 text-2xl" ref={menuAnimationScope}>
             <li>
-              <MenuAnimation>
+              <MenuHoverAnimation>
                 <a href="#about">About</a>
-              </MenuAnimation>
+              </MenuHoverAnimation>
             </li>
             <li>
-              <MenuAnimation>
+              <MenuHoverAnimation>
                 <a href="#portfolio">Portfolio</a>
-              </MenuAnimation>
+              </MenuHoverAnimation>
             </li>
             <li>
-              <MenuAnimation>
+              <MenuHoverAnimation>
                 <a href="#contact">Contact</a>
-              </MenuAnimation>
+              </MenuHoverAnimation>
             </li>
           </ul>
           <Image
