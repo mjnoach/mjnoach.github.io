@@ -18,10 +18,10 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
         <div className="inline-flex flex-col items-center gap-4 md:flex-row">
           <Image
             className="relative"
-            src="/itx.png"
+            src="/itx.svg"
             alt="Logo"
             width={35}
-            height={35}
+            height={21.88}
           />
           <span>© 2024 Andrzej Sienkiewicz</span>
         </div>

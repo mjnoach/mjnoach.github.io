@@ -24,10 +24,10 @@ export default function Home() {
           </h1>
           <Image
             className="relative my-10"
-            src="/itx.png"
+            src="/itx.svg"
             alt="Logo"
             width={180}
-            height={37}
+            height={113.44}
             priority
           />
         </div>
