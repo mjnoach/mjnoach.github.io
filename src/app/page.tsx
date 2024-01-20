@@ -26,8 +26,8 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="flex justify-between items-center">
-          <ul className="text-2xl space-y-4 mt-32">
+        <div className="flex items-center justify-between">
+          <ul className="mt-32 space-y-4 text-2xl">
             <li>
               <a href="#about">→ About</a>
             </li>
@@ -53,7 +53,7 @@ export default function Home() {
         id="about"
         className="container relative min-h-screen place-items-center p-24"
       >
-        <h2 className="font-heading text-5xl font-medium mb-6">About</h2>
+        <h2 className="mb-6 font-heading text-5xl font-medium">About</h2>
         <div className="grid max-w-[800px] items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]"></div>
       </section>
 
@@ -61,7 +61,7 @@ export default function Home() {
         id="portfolio"
         className="container relative min-h-screen place-items-center p-24"
       >
-        <h2 className="font-heading text-5xl font-medium mb-6">Portfolio</h2>
+        <h2 className="mb-6 font-heading text-5xl font-medium">Portfolio</h2>
         <Carousel
           className="mx-auto max-w-md"
           opts={{
@@ -93,7 +93,7 @@ export default function Home() {
         id="contact"
         className="container relative min-h-screen place-items-center p-24"
       >
-        <h2 className="font-heading text-5xl font-medium mb-6">Contact</h2>
+        <h2 className="mb-6 font-heading text-5xl font-medium">Contact</h2>
         <div className="grid max-w-[800px] items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]"></div>
       </section>
     </main>
