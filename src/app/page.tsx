@@ -1,13 +1,6 @@
 import Image from 'next/image'
 
-import { Card, CardContent } from '@/components/ui/card'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
+import { PortfolioCarousel } from '@/components/portfolio-carousel'
 
 export default function Home() {
   return (
@@ -62,31 +55,7 @@ export default function Home() {
         className="container relative min-h-screen place-items-center p-24"
       >
         <h2 className="mb-6 font-heading text-5xl font-medium">Portfolio</h2>
-        <Carousel
-          className="mx-auto max-w-md"
-          opts={{
-            align: 'center',
-            loop: true,
-          }}
-        >
-          <CarouselContent>
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem key={index}>
-                <div className="p-1">
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        <PortfolioCarousel />
       </section>
 
       <section
