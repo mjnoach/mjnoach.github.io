@@ -1,7 +1,9 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
+import { ButtonAnimation } from '@/components/button-animation'
 import {
   MenuHoverAnimation,
   useMenuAnimation,
@@ -14,7 +16,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <section className="container relative min-h-screen place-items-center p-24">
+      <section className="container min-h-screen p-24">
         <div className="flex flex-col">
           <div className="absolute right-0 top-0 mr-10 mt-10">
             <ModeToggle />
@@ -23,7 +25,7 @@ export default function Home() {
             Andrzej Sienkiewicz
           </h1>
           <Image
-            className="relative my-10"
+            className="my-10"
             src="/itx.svg"
             alt="Logo"
             width={180}
@@ -32,25 +34,28 @@ export default function Home() {
           />
         </div>
         <div className="flex items-center justify-between">
-          <ul className="mt-32 space-y-5 text-2xl" ref={menuAnimationScope}>
+          <ul
+            className="mt-32 space-y-5 font-heading text-2xl"
+            ref={menuAnimationScope}
+          >
             <li>
               <MenuHoverAnimation>
-                <a href="#about">About</a>
+                <Link href="#about">About</Link>
               </MenuHoverAnimation>
             </li>
             <li>
               <MenuHoverAnimation>
-                <a href="#portfolio">Portfolio</a>
+                <Link href="#portfolio">Portfolio</Link>
               </MenuHoverAnimation>
             </li>
             <li>
               <MenuHoverAnimation>
-                <a href="#contact">Contact</a>
+                <Link href="#contact">Contact</Link>
               </MenuHoverAnimation>
             </li>
           </ul>
           <Image
-            className="relative dark:invert"
+            className="dark:invert"
             src="https://illustrations.popsy.co/white/app-launch.svg"
             alt="Illustration"
             width={320}
@@ -61,30 +66,65 @@ export default function Home() {
       </section>
       <hr className="w-full" />
 
-      <section
-        id="about"
-        className="container relative min-h-screen place-items-center p-24"
-      >
+      <section id="about" className="container p-24">
         <h2 className="mb-8 font-heading text-5xl font-medium">About</h2>
-        <div className="grid max-w-[800px] items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]"></div>
+        <div className="flex max-w-[800px] flex-col gap-8 rounded-lg border p-4">
+          <p className="p-4 text-justify text-lg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <div className="flex justify-end gap-5">
+            <ButtonAnimation>
+              <a
+                href="https://github.com/mjnoach"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  className="relative"
+                  src="/github.svg"
+                  alt="Logo"
+                  width={40}
+                  height={40}
+                  priority
+                />
+              </a>
+            </ButtonAnimation>
+            <ButtonAnimation>
+              <a
+                href="https://www.linkedin.com/in/andrzej-sienkiewicz/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  className="relative"
+                  src="/linkedin.svg"
+                  alt="Logo"
+                  width={40}
+                  height={40}
+                  priority
+                />
+              </a>
+            </ButtonAnimation>
+          </div>
+        </div>
       </section>
       <hr className="w-full" />
 
-      <section
-        id="portfolio"
-        className="container relative min-h-screen place-items-center p-24"
-      >
+      <section id="portfolio" className="container p-24">
         <h2 className="mb-8 font-heading text-5xl font-medium">Portfolio</h2>
         <PortfolioCarousel />
       </section>
       <hr className="w-full" />
 
-      <section
-        id="contact"
-        className="container relative min-h-screen place-items-center p-24"
-      >
+      <section id="contact" className="container min-h-screen p-24">
         <h2 className="mb-8 font-heading text-5xl font-medium">Contact</h2>
-        <div className="grid max-w-[800px] items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]"></div>
+        <div className="h-[200px] max-w-[800px] gap-10 rounded-lg border p-4"></div>
       </section>
     </main>
   )
