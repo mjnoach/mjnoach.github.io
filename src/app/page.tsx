@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { ButtonAnimation } from '@/components/button-animation'
+import { ContactForm } from '@/components/contact-form'
 import {
   MenuHoverAnimation,
   useMenuAnimation,
@@ -77,7 +78,7 @@ export default function Home() {
 
       <section id="about" className="container p-24">
         <h2 className="mb-8 font-heading text-5xl font-medium">About</h2>
-        <div className="mx-auto flex max-w-[800px] flex-col gap-8 rounded-lg border p-4">
+        <div className="mx-auto flex flex-col gap-8 rounded-lg border p-4">
           <p className="p-4 text-justify text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -127,12 +128,14 @@ export default function Home() {
 
       <section id="contact" className="container p-24">
         <h2 className="mb-8 font-heading text-5xl font-medium">Contact</h2>
-        <div className="mx-auto flex max-w-[800px] flex-col gap-8 rounded-lg border p-4">
-          <p className="p-4 text-justify text-lg">
-            Let us cross paths - reach out and we’ll work on your next project
-            together.
-          </p>
-          <div className="h-[100px]" />
+        <div className="mx-auto flex flex-col gap-8 rounded-lg border p-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 p-4">
+            <p className="text-lg">
+              Let us cross paths - reach out and we’ll work on your next project
+              together.
+            </p>
+            <ContactForm />
+          </div>
           <div className="flex justify-end gap-5">
             <ButtonAnimation>
               <Button>
