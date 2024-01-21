@@ -6,8 +6,8 @@ const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
   const [bubbles, setBubbles] = useState<
     {
       id: number
-      x: string
-      y: string
+      x: string | number
+      y: string | number
       scale: number
       opacity: number
     }[]
@@ -22,14 +22,18 @@ const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
       id: index,
       x: `${Math.random() * 100}vw`,
       y: `${Math.random() * 100}vh`,
-      scale: Math.random() + 0.5,
-      opacity: Math.random(),
+      // TODO
+      // scale according to screen width
+      scale: Math.random() + 1.5,
+      opacity: Math.random() - 0.7,
     }))
   }
 
-  const renderBubbles = () => {
-    return bubbles.map((bubble) => {
-      return (
+  // TODO
+  // fix overflow
+  return (
+    <div className="absolute top-0 left-0 right-0 bottom-0 -z-10 overflow-y-visible overflow-x-clip">
+      {bubbles.map((bubble) => (
         <AnimatedBubble
           key={bubble.id}
           id={bubble.id}
@@ -38,23 +42,15 @@ const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
           scale={bubble.scale}
           opacity={bubble.opacity}
         />
-      )
-    })
-  }
-
-  // TODO
-  // fix overflow
-  return (
-    <div className="absolute top-0 bottom-0 right-0 left-0 -z-10 overflow-hidden">
-      {renderBubbles()}
+      ))}
     </div>
   )
 }
 
 const AnimatedBubble = (props: {
   id: number
-  x: string
-  y: string
+  x: string | number
+  y: string | number
   scale: number
   opacity: number
 }) => {
@@ -62,19 +58,16 @@ const AnimatedBubble = (props: {
   const controls = useAnimatedBubble(id)
   // const colors = ['bg-brand', 'bg-blue-800', 'bg-green-800']
   const colors = ['bg-brand']
+  const SPAWN_OUTSIDE_CONTAINER = false
 
   return (
     <motion.div
       className={cn(
-        'w-[1000px] h-[1000px] rounded-full blur-3xl',
-        colors[Math.floor(Math.random() * colors.length)]
+        'w-[300px] h-[300px] rounded-full blur-3xl',
+        colors[Math.floor(Math.random() * colors.length)],
+        SPAWN_OUTSIDE_CONTAINER ? '' : 'absolute'
       )}
-      initial={{
-        x: x,
-        y: y,
-        scale: scale,
-        opacity: opacity,
-      }}
+      initial={{ x, y, scale, opacity }}
       animate={controls}
     />
   )
@@ -87,6 +80,8 @@ const useAnimatedBubble = (id: number) => {
     controls.start({
       x: `${Math.random() * 100}vw`,
       y: `${Math.random() * 100}vh`,
+      // x: 0, // Math.random() * 100
+      // y: 0, // Math.random() * 100
       transition: {
         duration: Math.random() * 40 + 2,
         repeat: Infinity,

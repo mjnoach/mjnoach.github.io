@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
-    <footer className="border-t">
+    <footer className="border-t bg-background">
       <div className="container space-y-4 py-10 text-center md:py-5">
         <div className="text-muted-foreground dark:text-muted">
           Illustrations by{' '}
