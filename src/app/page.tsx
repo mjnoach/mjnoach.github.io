@@ -23,11 +23,9 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <section className="relative w-full flex min-h-screen flex-col p-24">
         <BubblesBackground />
-        <div className="absolute right-0 top-0 mr-10 mt-10">
-          <ModeToggle />
-        </div>
-        <div className="container">
-          <div className="flex flex-col">
+        <ModeToggle className="absolute right-0 top-0 mr-10 mt-10" />
+        <div className="container flex flex-col grow">
+          <>
             <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
               Andrzej Sienkiewicz
             </h1>
@@ -39,10 +37,10 @@ export default function Home() {
               height={113.44}
               priority
             />
-          </div>
+          </>
           <div className="flex grow flex-col items-center justify-evenly gap-16 md:flex-row md:justify-between md:gap-0">
             <ul
-              className="mt-16 space-y-5 font-heading text-3xl sm:text-5xl md:mt-36"
+              className="space-y-5 font-heading text-3xl sm:text-5xl"
               ref={menuAnimationScope}
             >
               <li>
@@ -62,7 +60,7 @@ export default function Home() {
               </li>
             </ul>
             <Image
-              className="dark:invert w-[300px] sm:w-[350px] md:w-[400px] lg:w-[500px] xl:w-[600px] h-auto"
+              className="dark:invert w-[300px] sm:w-[350px] md:w-[400px] lg:w-[500px] xl:w-[600px]"
               src="https://illustrations.popsy.co/white/app-launch.svg"
               alt="Illustration"
               width={0}
@@ -124,7 +122,6 @@ export default function Home() {
                 rel="noreferrer"
               >
                 <Image
-                  className="relative"
                   src="/github.svg"
                   alt="Logo"
                   width={40}
@@ -140,7 +137,6 @@ export default function Home() {
                 rel="noreferrer"
               >
                 <Image
-                  className="relative"
                   src="/linkedin.svg"
                   alt="Logo"
                   width={40}
@@ -174,7 +170,7 @@ export default function Home() {
               // src="https://illustrations.popsy.co/white/communication.svg"
               // src="https://illustrations.popsy.co/white/freelancer.svg"
               src="https://illustrations.popsy.co/white/finance-growth.svg"
-              className="relative dark:invert w-full -mt-20 -mb-14 md:-mb-28"
+              className="dark:invert w-full -mt-20 -mb-14 md:-mb-28"
               alt="Illustration"
               width={400}
               height={37}

@@ -49,6 +49,8 @@ const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
   )
 }
 
+const SPAWN_OUTSIDE_CONTAINER = false
+
 const AnimatedBubble = (props: {
   id: number
   x: string | number
@@ -60,7 +62,6 @@ const AnimatedBubble = (props: {
   const controls = useAnimatedBubble(id)
   // const colors = ['bg-brand', 'bg-blue-800', 'bg-green-800']
   const colors = ['bg-brand']
-  const SPAWN_OUTSIDE_CONTAINER = false
 
   return (
     <motion.div
