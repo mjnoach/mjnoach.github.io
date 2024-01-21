@@ -1,8 +1,10 @@
 import { cn } from '@/lib/utils'
+import { useWindowSize } from '@uidotdev/usehooks'
 import { motion, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
+  const size = useWindowSize()
   const [bubbles, setBubbles] = useState<
     {
       id: number
@@ -14,25 +16,23 @@ const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
   >([])
 
   useEffect(() => {
+    const createBubbles = (count: number) => {
+      return Array.from({ length: count }, (_, index) => ({
+        id: index,
+        x: Math.random() * Number(size.width),
+        y: Math.random() * Number(size.height),
+        // TODO
+        // scale according to screen width
+        scale: Math.random() * 4,
+        // TODO
+        // set more strict visibility range
+        opacity: Math.random() * 0.1,
+      }))
+    }
+
     setBubbles(createBubbles(numBubbles))
-  }, [numBubbles])
+  }, [numBubbles, size.height, size.width])
 
-  const createBubbles = (count: number) => {
-    return Array.from({ length: count }, (_, index) => ({
-      id: index,
-      x: `${Math.random() * 100}vw`,
-      y: `${Math.random() * 100}vh`,
-      // TODO
-      // scale according to screen width
-      scale: Math.random() + 1.5,
-      // TODO
-      // set more strict visibility range
-      opacity: Math.random() - 0.7,
-    }))
-  }
-
-  // TODO
-  // fix overflow
   return (
     <div className="absolute top-0 left-0 right-0 bottom-0 -z-10 overflow-y-visible overflow-x-clip">
       {bubbles.map((bubble) => (
@@ -77,21 +77,20 @@ const AnimatedBubble = (props: {
 }
 
 const useAnimatedBubble = (id: number) => {
+  const size = useWindowSize()
   const controls = useAnimation()
 
   useEffect(() => {
     controls.start({
-      x: `${Math.random() * 100}vw`,
-      y: `${Math.random() * 100}vh`,
-      // x: 0, // Math.random() * 100
-      // y: 0, // Math.random() * 100
+      x: Math.random() * Number(size.width),
+      y: Math.random() * Number(size.height),
       transition: {
         duration: Math.random() * 40 + 2,
         repeat: Infinity,
         repeatType: 'mirror',
       },
     })
-  }, [controls, id])
+  }, [controls, id, size.height, size.width])
 
   return controls
 }
