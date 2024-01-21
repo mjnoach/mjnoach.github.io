@@ -10,19 +10,16 @@ export function useMenuAnimation() {
   useEffect(() => {
     animate(
       'li',
-      { opacity: [0, 1], y: [120, 0] },
+      { opacity: [0, 1], y: [-120, 0] },
       {
         duration: 0.3,
-        delay: stagger(0.1, { startDelay: 0.15 }),
+        delay: stagger(0.1, { startDelay: 0.15, from: 'last' }),
       }
     )
   })
 
   return scope
 }
-
-// interface ___ extends React.HTMLAttributes<HTMLDivElement> {
-// }
 
 export function MenuHoverAnimation({
   className,

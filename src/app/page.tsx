@@ -24,8 +24,8 @@ export default function Home() {
       <section className="relative w-full flex min-h-screen flex-col p-24">
         <BubblesBackground />
         <ModeToggle className="absolute right-0 top-0 mr-10 mt-10" />
-        <div className="container flex flex-col grow">
-          <>
+        <div className="container flex flex-col grow gap-24">
+          <div>
             <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
               Andrzej Sienkiewicz
             </h1>
@@ -37,8 +37,8 @@ export default function Home() {
               height={113.44}
               priority
             />
-          </>
-          <div className="flex grow flex-col items-center justify-evenly gap-16 md:flex-row md:justify-between md:gap-0">
+          </div>
+          <div className="flex grow flex-col items-center justify-evenly gap-16 md:flex-row md:justify-between md:gap-0 md:items-start">
             <ul
               className="space-y-5 font-heading text-3xl sm:text-5xl"
               ref={menuAnimationScope}
@@ -60,7 +60,7 @@ export default function Home() {
               </li>
             </ul>
             <Image
-              className="dark:invert w-[300px] sm:w-[350px] md:w-[400px] lg:w-[500px] xl:w-[600px]"
+              className="dark:invert w-[300px] sm:w-[350px] md:w-[400px] lg:-mt-[80px] lg:-mb-[20px] lg:w-[500px] xl:w-[600px] xl:mt-0 xl:mb-0 self-end"
               src="https://illustrations.popsy.co/white/app-launch.svg"
               alt="Illustration"
               width={0}
