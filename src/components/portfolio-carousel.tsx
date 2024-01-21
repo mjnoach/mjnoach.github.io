@@ -1,6 +1,7 @@
 'use client'
 
 import Autoplay from 'embla-carousel-autoplay'
+import { motion } from 'framer-motion'
 
 import React from 'react'
 
@@ -33,10 +34,21 @@ export function PortfolioCarousel({
         {Array.from({ length: 3 }).map((_, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <Card>
-                <CardContent className="flex h-[300px] items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
+              <Card className="overflow-hidden">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                >
+                  <CardContent
+                    className="flex h-[300px] cursor-pointer items-center justify-center rounded-lg bg-cover p-6 text-black"
+                    style={{
+                      backgroundImage: "url('/strapi-plugin-cron.png')",
+                    }}
+                  >
+                    <span className="text-4xl font-semibold">{index + 1}</span>
+                  </CardContent>
+                </motion.div>
               </Card>
             </div>
           </CarouselItem>
