@@ -25,6 +25,8 @@ const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
       // TODO
       // scale according to screen width
       scale: Math.random() + 1.5,
+      // TODO
+      // set more strict visibility range
       opacity: Math.random() - 0.7,
     }))
   }
