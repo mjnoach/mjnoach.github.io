@@ -45,9 +45,10 @@ export function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel className="text-lg">Email</FormLabel>
               <FormControl>
                 <Input
+                  className="text-lg"
                   placeholder="Your email address"
                   autoComplete="email"
                   {...field}
@@ -62,15 +63,21 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel className="text-lg">Message</FormLabel>
               <FormControl>
-                <Textarea placeholder="Enter your message" {...field} />
+                <Textarea
+                  className="text-lg"
+                  placeholder="Enter your message"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button className="text-lg" type="submit">
+          Submit
+        </Button>
       </form>
     </Form>
   )

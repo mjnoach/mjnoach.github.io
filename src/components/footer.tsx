@@ -15,7 +15,7 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
             Popsy
           </a>
         </div>
-        <div className="inline-flex flex-col items-center gap-4 md:flex-row">
+        <div className="inline-flex flex-col items-center gap-4 md:flex-row text-lg">
           <Image
             className="relative"
             src="/itx.svg"
