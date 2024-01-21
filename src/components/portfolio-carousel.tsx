@@ -33,27 +33,31 @@ export function PortfolioCarousel({
       <CarouselContent>
         {Array.from(['Strapi', 'Dating App', '3']).map((value, index) => (
           <CarouselItem key={index}>
-            <div className="p-1">
-              <Card className="overflow-hidden">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                >
-                  <CardContent
-                    className="flex h-[300px] cursor-pointer items-center justify-center rounded-lg bg-cover p-6"
-                    style={{
-                      backgroundImage:
-                        value === 'Strapi'
-                          ? "url('/strapi-plugin-cron.png')"
-                          : '',
-                    }}
+            <motion.div
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >
+              <div className="p-1">
+                <Card className="overflow-hidden">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                   >
-                    <span className="text-4xl font-semibold">{value}</span>
-                  </CardContent>
-                </motion.div>
-              </Card>
-            </div>
+                    <CardContent
+                      className="flex h-[300px] cursor-pointer items-center justify-center rounded-lg bg-cover p-6"
+                      style={{
+                        backgroundImage:
+                          value === 'Strapi'
+                            ? "url('/strapi-plugin-cron.png')"
+                            : '',
+                      }}
+                    >
+                      <span className="text-4xl font-semibold">{value}</span>
+                    </CardContent>
+                  </motion.div>
+                </Card>
+              </div>
+            </motion.div>
           </CarouselItem>
         ))}
       </CarouselContent>
