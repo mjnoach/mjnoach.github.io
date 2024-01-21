@@ -5,6 +5,7 @@ import { Mail, Phone } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import BubblesBackground from '@/components/bubbles-background'
 import { ButtonAnimation } from '@/components/button-animation'
 import { ContactForm } from '@/components/contact-form'
 import {
@@ -21,6 +22,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <section className="container flex min-h-screen flex-col p-24">
+        <BubblesBackground numBubbles={20} />
         <div className="absolute right-0 top-0 mr-10 mt-10">
           <ModeToggle />
         </div>
@@ -37,7 +39,8 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="flex grow flex-col items-center justify-evenly gap-16 md:flex-row md:justify-between md:gap-0">
+        <div className="flex relative grow flex-col items-center justify-evenly gap-16 md:flex-row md:justify-between md:gap-0">
+          {/* <BubblesBackground numBubbles={20} /> */}
           <ul
             className="mt-16 space-y-5 font-heading text-3xl sm:text-5xl md:mt-36"
             ref={menuAnimationScope}

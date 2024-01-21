@@ -31,7 +31,7 @@ export function PortfolioCarousel({
       }}
     >
       <CarouselContent>
-        {Array.from({ length: 3 }).map((_, index) => (
+        {Array.from(['Strapi', 'Dating App', '3']).map((value, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
               <Card className="overflow-hidden">
@@ -41,12 +41,15 @@ export function PortfolioCarousel({
                   transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                 >
                   <CardContent
-                    className="flex h-[300px] cursor-pointer items-center justify-center rounded-lg bg-cover p-6 text-black"
+                    className="flex h-[300px] cursor-pointer items-center justify-center rounded-lg bg-cover p-6"
                     style={{
-                      backgroundImage: "url('/strapi-plugin-cron.png')",
+                      backgroundImage:
+                        value === 'Strapi'
+                          ? "url('/strapi-plugin-cron.png')"
+                          : '',
                     }}
                   >
-                    <span className="text-4xl font-semibold">{index + 1}</span>
+                    <span className="text-4xl font-semibold">{value}</span>
                   </CardContent>
                 </motion.div>
               </Card>
