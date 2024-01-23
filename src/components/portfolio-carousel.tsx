@@ -1,8 +1,8 @@
 'use client'
 
 import Autoplay from 'embla-carousel-autoplay'
-import { motion } from 'framer-motion'
 
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 import React from 'react'
 
 import { Card, CardContent } from './ui/card'
@@ -31,35 +31,37 @@ export function PortfolioCarousel({}: React.HTMLAttributes<HTMLElement>) {
         <CarouselContent>
           {Array.from(['Strapi', 'Dating App', '3']).map((value, index) => (
             <CarouselItem key={index}>
-              <motion.div
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-              >
-                <div className="p-1">
-                  <Card className="overflow-hidden">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      transition={{
-                        type: 'spring',
-                        stiffness: 400,
-                        damping: 17,
-                      }}
-                    >
-                      <CardContent
-                        className="flex h-[300px] cursor-pointer items-center justify-center rounded-lg bg-cover p-6"
-                        style={{
-                          backgroundImage:
-                            value === 'Strapi'
-                              ? "url('/strapi-plugin-cron.png')"
-                              : '',
+              <LazyMotion features={domAnimation}>
+                <m.div
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                >
+                  <div className="p-1">
+                    <Card className="overflow-hidden">
+                      <m.div
+                        whileHover={{ scale: 1.05 }}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 400,
+                          damping: 17,
                         }}
                       >
-                        <h4>{value}</h4>
-                      </CardContent>
-                    </motion.div>
-                  </Card>
-                </div>
-              </motion.div>
+                        <CardContent
+                          className="flex h-[300px] cursor-pointer items-center justify-center rounded-lg bg-cover p-6"
+                          style={{
+                            backgroundImage:
+                              value === 'Strapi'
+                                ? "url('/strapi-plugin-cron.png')"
+                                : '',
+                          }}
+                        >
+                          <h4>{value}</h4>
+                        </CardContent>
+                      </m.div>
+                    </Card>
+                  </div>
+                </m.div>
+              </LazyMotion>
             </CarouselItem>
           ))}
         </CarouselContent>

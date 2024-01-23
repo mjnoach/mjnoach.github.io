@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import { useWindowSize } from '@uidotdev/usehooks'
-import { motion, useAnimation } from 'framer-motion'
+import { m, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
@@ -64,7 +64,7 @@ const AnimatedBubble = (props: {
   const colors = ['bg-brand']
 
   return (
-    <motion.div
+    <m.div
       className={cn(
         'w-[300px] h-[300px] rounded-full blur-3xl',
         colors[Math.floor(Math.random() * colors.length)],

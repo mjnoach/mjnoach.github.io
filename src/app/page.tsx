@@ -17,7 +17,7 @@ import { PortfolioCarousel } from '@/components/portfolio-carousel'
 import { Button } from '@/components/ui/button'
 import { useParallax } from '@/lib/hooks'
 import { getBreakpointWidth } from '@/lib/utils'
-import { motion, useScroll } from 'framer-motion'
+import { LazyMotion, domAnimation, m, useScroll } from 'framer-motion'
 import { useRef } from 'react'
 
 export default function Home() {
@@ -62,46 +62,50 @@ export default function Home() {
             ref={menuContainerRef}
             className="relative flex grow flex-col items-center gap-12 justify-evenly md:flex-row md:justify-between md:items-start"
           >
-            <motion.div ref={menuRef} style={parallaxStyle}>
-              <ul className="space-y-5" ref={slideInAnimation}>
-                <li>
-                  <MenuHover>
-                    <Link href="#portfolio">
-                      <h3>Portfolio</h3>
-                    </Link>
-                  </MenuHover>
-                </li>
-                <li>
-                  <MenuHover>
-                    <Link href="#about">
-                      <h3>About</h3>
-                    </Link>
-                  </MenuHover>
-                </li>
-                <li>
-                  <MenuHover>
-                    <Link href="#contact">
-                      <h3>Contact</h3>
-                    </Link>
-                  </MenuHover>
-                </li>
-              </ul>
-            </motion.div>
-            <motion.div
-              className="self-end"
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <Image
-                className="dark:invert h-full w-full max-w-2xl"
-                src="https://illustrations.popsy.co/white/app-launch.svg"
-                alt="Illustration"
-                width={0}
-                height={0}
-                priority
-              />
-            </motion.div>
+            <LazyMotion features={domAnimation}>
+              <m.div ref={menuRef} style={parallaxStyle}>
+                <ul className="space-y-5" ref={slideInAnimation}>
+                  <li>
+                    <MenuHover>
+                      <Link href="#portfolio">
+                        <h3>Portfolio</h3>
+                      </Link>
+                    </MenuHover>
+                  </li>
+                  <li>
+                    <MenuHover>
+                      <Link href="#about">
+                        <h3>About</h3>
+                      </Link>
+                    </MenuHover>
+                  </li>
+                  <li>
+                    <MenuHover>
+                      <Link href="#contact">
+                        <h3>Contact</h3>
+                      </Link>
+                    </MenuHover>
+                  </li>
+                </ul>
+              </m.div>
+            </LazyMotion>
+            <LazyMotion features={domAnimation}>
+              <m.div
+                className="self-end"
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <Image
+                  className="dark:invert h-full w-full max-w-2xl"
+                  src="https://illustrations.popsy.co/white/app-launch.svg"
+                  alt="Illustration"
+                  width={0}
+                  height={0}
+                  priority
+                />
+              </m.div>
+            </LazyMotion>
           </div>
         </div>
       </section>
