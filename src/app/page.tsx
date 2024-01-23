@@ -2,10 +2,10 @@
 
 import { Mail, Phone } from 'lucide-react'
 
+import { useWindowSize } from '@uidotdev/usehooks'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import BubblesBackground from '@/components/bubbles-background'
 import { ButtonAnimation } from '@/components/button-animation'
 import { ContactForm } from '@/components/contact-form'
 import {
@@ -16,20 +16,28 @@ import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
 import { Button } from '@/components/ui/button'
 import { useParallax } from '@/lib/hooks'
+import { getBreakpointWidth } from '@/lib/utils'
 import { motion, useScroll } from 'framer-motion'
 import { useRef } from 'react'
 
 export default function Home() {
   const menuAnimationScope = useMenuAnimation()
+  const size = useWindowSize()
 
   const scrollRef = useRef(null)
   const { scrollYProgress } = useScroll({ target: scrollRef })
-  const menuParallax = useParallax(scrollYProgress, [100, 0])
+  const parallaxMenuProgress = useParallax(scrollYProgress, [600, 0])
+
+  let parallaxMenuStyle = {}
+
+  if (Number(size.width) > getBreakpointWidth('md')) {
+    parallaxMenuStyle = { y: parallaxMenuProgress }
+  }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <section className="relative w-full flex min-h-screen flex-col p-24">
-        <BubblesBackground />
+        {/* <BubblesBackground /> */}
         <ModeToggle className="absolute right-0 top-0 mr-10 mt-10" />
         <div className="container flex flex-col grow gap-8 md:gap-24">
           <div>
@@ -45,11 +53,8 @@ export default function Home() {
               priority
             />
           </div>
-          <div
-            ref={scrollRef}
-            className="relative flex grow flex-col items-center justify-evenly gap-16 md:flex-row md:justify-between md:gap-0 md:items-start"
-          >
-            <motion.div style={{ y: menuParallax }}>
+          <div className="relative flex grow flex-col items-center justify-evenly gap-16 md:flex-row md:justify-between md:gap-0 md:items-start">
+            <motion.div style={parallaxMenuStyle}>
               <ul
                 className="space-y-5 font-heading text-3xl sm:text-4xl lg:text-5xl"
                 ref={menuAnimationScope}
@@ -82,7 +87,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <hr className="w-full" />
+      <hr ref={scrollRef} className="w-full" />
 
       <section id="portfolio" className="container p-24">
         <h2 className="mb-8 font-heading text-5xl font-medium">Portfolio</h2>
