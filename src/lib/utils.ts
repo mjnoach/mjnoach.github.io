@@ -9,10 +9,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 const breakpoints =
-  'screens' in tailwindConfig.theme
+  'screens' in tailwindConfig.theme.extend
     ? {
         ...tailwindConfigDefault.theme.screens,
-        ...(tailwindConfig.theme.screens as object),
+        ...tailwindConfig.theme.extend.screens,
       }
     : tailwindConfigDefault.theme.screens
 

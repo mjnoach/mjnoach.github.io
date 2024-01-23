@@ -4,7 +4,7 @@ import { motion, stagger, useAnimate } from 'framer-motion'
 
 import { useEffect } from 'react'
 
-export function useMenuAnimation() {
+export function useSlideInAnimation() {
   const [scope, animate] = useAnimate()
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export function useMenuAnimation() {
   return scope
 }
 
-export function MenuHoverAnimation({
+export function MenuHover({
   className,
   children,
 }: React.HTMLAttributes<HTMLElement>) {
@@ -31,6 +31,17 @@ export function MenuHoverAnimation({
       transition={{ type: 'spring', stiffness: 400, damping: 20 }}
     >
       {/* {'→ '} */}
+      {children}
+    </motion.div>
+  )
+}
+
+export function ButtonHover({
+  className,
+  children,
+}: React.HTMLAttributes<HTMLElement>) {
+  return (
+    <motion.div className="cursor-pointer" whileHover={{ scale: 1.1 }}>
       {children}
     </motion.div>
   )

@@ -20,6 +20,11 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        dpr: {
+          raw: 'only screen and (min-device-pixel-ratio: 2)',
+        },
+      },
       colors: {
         brand: 'rgb(221,82,76)',
         border: 'hsl(var(--border))',

@@ -6,12 +6,12 @@ import { useWindowSize } from '@uidotdev/usehooks'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ButtonAnimation } from '@/components/button-animation'
-import { ContactForm } from '@/components/contact-form'
 import {
-  MenuHoverAnimation,
-  useMenuAnimation,
-} from '@/components/menu-animation'
+  ButtonHover,
+  MenuHover,
+  useSlideInAnimation,
+} from '@/components/animation'
+import { ContactForm } from '@/components/contact-form'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
 import { Button } from '@/components/ui/button'
@@ -21,29 +21,34 @@ import { motion, useScroll } from 'framer-motion'
 import { useRef } from 'react'
 
 export default function Home() {
-  const menuAnimationScope = useMenuAnimation()
+  const slideInAnimation = useSlideInAnimation()
   const size = useWindowSize()
-
+  const menuContainerRef = useRef(null)
+  const menuRef = useRef(null)
   const scrollRef = useRef(null)
   const { scrollYProgress } = useScroll({ target: scrollRef })
-  const parallaxMenuProgress = useParallax(scrollYProgress, [600, 0])
+  const parallaxProgress = useParallax(scrollYProgress, [
+    // @ts-ignore
+    menuContainerRef.current?.clientHeight -
+      // @ts-ignore
+      menuRef.current?.clientHeight * 0.6,
+    0,
+  ])
 
-  let parallaxMenuStyle = {}
-
-  if (Number(size.width) > getBreakpointWidth('md')) {
-    parallaxMenuStyle = { y: parallaxMenuProgress }
-  }
+  const parallaxStyle =
+    // enable paralllax only on tablet and desktop
+    Number(size.width) >= getBreakpointWidth('md')
+      ? { y: parallaxProgress }
+      : {}
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <section className="relative w-full flex min-h-screen flex-col p-24">
+    <main>
+      <section className="relative w-full flex min-h-screen flex-col">
         {/* <BubblesBackground /> */}
         <ModeToggle className="absolute right-0 top-0 mr-10 mt-10" />
-        <div className="container flex flex-col grow gap-8 md:gap-24">
+        <div className="md:container flex flex-col grow gap-12 md:gap-24 pt-24 px-12 pb-12 md:p-24">
           <div>
-            <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-              Andrzej Sienkiewicz
-            </h1>
+            <h1>Andrzej Sienkiewicz</h1>
             <Image
               className="my-10"
               src="/itx.svg"
@@ -53,50 +58,63 @@ export default function Home() {
               priority
             />
           </div>
-          <div className="relative flex grow flex-col items-center justify-evenly gap-16 md:flex-row md:justify-between md:gap-0 md:items-start">
-            <motion.div style={parallaxMenuStyle}>
-              <ul
-                className="space-y-5 font-heading text-3xl sm:text-4xl lg:text-5xl"
-                ref={menuAnimationScope}
-              >
+          <div
+            ref={menuContainerRef}
+            className="relative flex grow flex-col items-center gap-12 justify-evenly md:flex-row md:justify-between md:items-start"
+          >
+            <motion.div ref={menuRef} style={parallaxStyle}>
+              <ul className="space-y-5" ref={slideInAnimation}>
                 <li>
-                  <MenuHoverAnimation>
-                    <Link href="#portfolio">Portfolio</Link>
-                  </MenuHoverAnimation>
+                  <MenuHover>
+                    <Link href="#portfolio">
+                      <h3>Portfolio</h3>
+                    </Link>
+                  </MenuHover>
                 </li>
                 <li>
-                  <MenuHoverAnimation>
-                    <Link href="#about">About</Link>
-                  </MenuHoverAnimation>
+                  <MenuHover>
+                    <Link href="#about">
+                      <h3>About</h3>
+                    </Link>
+                  </MenuHover>
                 </li>
                 <li>
-                  <MenuHoverAnimation>
-                    <Link href="#contact">Contact</Link>
-                  </MenuHoverAnimation>
+                  <MenuHover>
+                    <Link href="#contact">
+                      <h3>Contact</h3>
+                    </Link>
+                  </MenuHover>
                 </li>
               </ul>
             </motion.div>
-            <Image
-              className="dark:invert md:absolute md:right-0 md:bottom-0 w-[300px] sm:w-[350px] md:w-[400px] lg:w-[500px] xl:w-[600px]"
-              src="https://illustrations.popsy.co/white/app-launch.svg"
-              alt="Illustration"
-              width={0}
-              height={0}
-              priority
-            />
+            <motion.div
+              className="self-end"
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Image
+                className="dark:invert h-full w-full max-w-2xl"
+                src="https://illustrations.popsy.co/white/app-launch.svg"
+                alt="Illustration"
+                width={0}
+                height={0}
+                priority
+              />
+            </motion.div>
           </div>
         </div>
       </section>
       <hr ref={scrollRef} className="w-full" />
 
-      <section id="portfolio" className="container p-24">
-        <h2 className="mb-8 font-heading text-5xl font-medium">Portfolio</h2>
+      <section id="portfolio" className="container py-8 md:py-12 lg:py-24">
+        <h2 className="mb-8">Portfolio</h2>
         <PortfolioCarousel />
       </section>
       <hr className="w-full" />
 
-      <section id="about" className="container p-24">
-        <h2 className="mb-8 font-heading text-5xl font-medium">About</h2>
+      <section id="about" className="container py-8 md:py-12 lg:py-24">
+        <h2 className="mb-8">About</h2>
         <div className="mx-auto flex flex-col gap-8 rounded-lg bg-background border p-4">
           <div className="p-4 text-justify text-lg space-y-8">
             <p>
@@ -132,7 +150,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex justify-end gap-5">
-            <ButtonAnimation>
+            <ButtonHover>
               <a
                 href="https://github.com/mjnoach"
                 target="_blank"
@@ -146,8 +164,8 @@ export default function Home() {
                   priority
                 />
               </a>
-            </ButtonAnimation>
-            <ButtonAnimation>
+            </ButtonHover>
+            <ButtonHover>
               <a
                 href="https://www.linkedin.com/in/andrzej-sienkiewicz/"
                 target="_blank"
@@ -161,18 +179,18 @@ export default function Home() {
                   priority
                 />
               </a>
-            </ButtonAnimation>
+            </ButtonHover>
           </div>
         </div>
       </section>
       <hr className="w-full" />
 
-      <section id="contact" className="container p-24">
-        <h2 className="mb-8 font-heading text-5xl font-medium">Contact</h2>
+      <section id="contact" className="container py-8 md:py-12 lg:py-24">
+        <h2 className="mb-8">Contact</h2>
         <div className="mx-auto flex flex-col gap-8 rounded-lg bg-background border p-4">
-          <p className="font-heading text-2xl text-center p-8">
-            Reach out to work on a project together!
-          </p>
+          <h4 className="text-center p-8">
+            Reach out and let&apos;s work on a project together!
+          </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 p-4">
             <Image
               // src="https://illustrations.popsy.co/white/shaking-hands.svg"
@@ -195,16 +213,16 @@ export default function Home() {
             <ContactForm />
           </div>
           <div className="flex justify-end gap-5">
-            <ButtonAnimation>
+            <ButtonHover>
               <Button>
                 <Mail className="h-5 w-5" />
               </Button>
-            </ButtonAnimation>
-            <ButtonAnimation>
+            </ButtonHover>
+            <ButtonHover>
               <Button>
                 <Phone className="h-5 w-5" />
               </Button>
-            </ButtonAnimation>
+            </ButtonHover>
           </div>
         </div>
       </section>
