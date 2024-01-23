@@ -22,7 +22,7 @@ export function PortfolioCarousel({}: React.HTMLAttributes<HTMLElement>) {
   return (
     <div className="w-full justify-center p-10 items-center">
       <Carousel
-        plugins={[plugin.current]}
+        // plugins={[plugin.current]}
         opts={{
           align: 'center',
           loop: true,

@@ -14,6 +14,7 @@ import {
 import { ContactForm } from '@/components/contact-form'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
+import { Spinner3D } from '@/components/spinner-3d'
 import { Button } from '@/components/ui/button'
 import { useParallax } from '@/lib/hooks'
 import { getBreakpointWidth } from '@/lib/utils'
@@ -89,15 +90,18 @@ export default function Home() {
                 </ul>
               </m.div>
             </LazyMotion>
-            <LazyMotion features={domAnimation}>
+            <div className="self-end h-full w-full max-w-2xl">
+              <Spinner3D />
+            </div>
+            {/* <LazyMotion features={domAnimation}>
               <m.div
-                className="self-end"
+                className="self-end h-full w-full max-w-2xl"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
                 <Image
-                  className="dark:invert h-full w-full max-w-2xl"
+                  className="dark:invert"
                   src="https://illustrations.popsy.co/white/app-launch.svg"
                   alt="Illustration"
                   width={0}
@@ -105,7 +109,7 @@ export default function Home() {
                   priority
                 />
               </m.div>
-            </LazyMotion>
+            </LazyMotion> */}
           </div>
         </div>
       </section>
