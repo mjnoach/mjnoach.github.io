@@ -1,8 +1,8 @@
 'use client'
 
-import { m, stagger, useAnimate } from 'framer-motion'
-
 import { useEffect } from 'react'
+
+import { m, stagger, useAnimate } from 'framer-motion'
 
 export function useSlideInAnimation() {
   const [scope, animate] = useAnimate()

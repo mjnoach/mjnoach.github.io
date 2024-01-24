@@ -1,8 +1,5 @@
 'use client'
 
-import Autoplay from 'embla-carousel-autoplay'
-
-import { LazyMotion, domAnimation, m } from 'framer-motion'
 import React from 'react'
 
 import { Card, CardContent } from './ui/card'
@@ -14,13 +11,16 @@ import {
   CarouselPrevious,
 } from './ui/carousel'
 
+import Autoplay from 'embla-carousel-autoplay'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
+
 export function PortfolioCarousel({}: React.HTMLAttributes<HTMLElement>) {
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
   )
 
   return (
-    <div className="w-full justify-center p-10 items-center">
+    <div className="w-full items-center justify-center p-10">
       <Carousel
         // plugins={[plugin.current]}
         opts={{

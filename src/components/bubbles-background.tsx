@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react'
+
 import { useWindowSize } from '@/lib/hooks'
 import { cn } from '@/lib/utils'
+
 import { m, useAnimation } from 'framer-motion'
-import { useEffect, useState } from 'react'
 
 const BubblesBackground = ({ numBubbles = 5 }: { numBubbles?: number }) => {
   const size = useWindowSize()
@@ -30,7 +32,7 @@ const BubblesBackground = ({ numBubbles = 5 }: { numBubbles?: number }) => {
   }, [numBubbles, size.height, size.width])
 
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 -z-10 overflow-y-visible overflow-x-clip">
+    <div className="absolute bottom-0 left-0 right-0 top-0 -z-10 overflow-x-clip overflow-y-visible">
       {bubbles.map((bubble) => (
         <AnimatedBubble
           key={bubble.id}
@@ -62,7 +64,7 @@ const AnimatedBubble = (props: {
   return (
     <m.div
       className={cn(
-        'w-[300px] h-[300px] rounded-full blur-3xl',
+        'h-[300px] w-[300px] rounded-full blur-3xl',
         colors[Math.floor(Math.random() * colors.length)],
         SPAWN_OUTSIDE_CONTAINER ? '' : 'absolute'
       )}

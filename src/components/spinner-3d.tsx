@@ -1,7 +1,7 @@
-import type { SPEObject, Application as SplineApp } from '@splinetool/runtime'
 import { useRef } from 'react'
-
 import React from 'react'
+
+import type { SPEObject, Application as SplineApp } from '@splinetool/runtime'
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'))
 
@@ -19,7 +19,7 @@ export function Spinner3D() {
     // <Suspense fallback={<Fallback />}>
     //   </Suspense>
     <Spline
-      className="aspect-square pointer-events-none"
+      className="pointer-events-none aspect-square"
       onLoad={onLoad}
       scene="https://prod.spline.design/svFbPY8kxdT8ELTn/scene.splinecode"
     />

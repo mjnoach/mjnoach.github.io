@@ -1,8 +1,8 @@
-import { clsx, type ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-import tailwindConfigDefault from 'tailwindcss/stubs/config.full'
 import tailwindConfig from '../../tailwind.config'
+
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+import tailwindConfigDefault from 'tailwindcss/stubs/config.full'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
