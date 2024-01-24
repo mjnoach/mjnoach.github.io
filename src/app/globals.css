@@ -71,10 +71,13 @@
     @apply border-border;
   }
   body {
-    @apply dark:dark flex min-h-screen flex-col overflow-x-clip bg-background text-foreground;
+    @apply flex min-h-screen flex-col overflow-x-clip bg-background text-foreground;
   }
   main {
     @apply flex-1;
+  }
+  img {
+    /* @apply h-auto w-auto; */
   }
   h1 {
     @apply font-heading text-5xl md:text-6xl lg:text-7xl;

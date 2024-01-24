@@ -2,6 +2,9 @@
 
 import React from 'react'
 
+import Image from 'next/image'
+
+import imgStrapi from '../../public/strapi-plugin-cron.png'
 import { Card, CardContent } from './ui/card'
 import {
   Carousel,
@@ -11,13 +14,12 @@ import {
   CarouselPrevious,
 } from './ui/carousel'
 
-import Autoplay from 'embla-carousel-autoplay'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 
 export function PortfolioCarousel({}: React.HTMLAttributes<HTMLElement>) {
-  const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  )
+  // const plugin = React.useRef(
+  //   Autoplay({ delay: 4000, stopOnInteraction: true })
+  // )
 
   return (
     <div className="w-full items-center justify-center p-10">
@@ -46,16 +48,14 @@ export function PortfolioCarousel({}: React.HTMLAttributes<HTMLElement>) {
                           damping: 17,
                         }}
                       >
-                        <CardContent
-                          className="flex h-[300px] cursor-pointer items-center justify-center rounded-lg bg-cover p-6"
-                          style={{
-                            backgroundImage:
-                              value === 'Strapi'
-                                ? "url('/strapi-plugin-cron.png')"
-                                : '',
-                          }}
-                        >
-                          <h4>{value}</h4>
+                        <CardContent className="relative flex h-[300px] cursor-pointer items-center justify-center rounded-lg p-6">
+                          <Image
+                            src={imgStrapi}
+                            alt={'Strapi'}
+                            fill
+                            className="object-cover object-left-top"
+                          />
+                          <h4 className="z-10 bg-white text-black">{value}</h4>
                         </CardContent>
                       </m.div>
                     </Card>

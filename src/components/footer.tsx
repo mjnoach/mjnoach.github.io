@@ -1,5 +1,7 @@
 import Image from 'next/image'
 
+import imgLogo from '../../public/itx.svg'
+
 export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer className="border-t bg-background">
@@ -16,7 +18,13 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
           </a>
         </div>
         <div className="inline-flex flex-col items-center gap-4 text-lg md:flex-row">
-          <Image src="/itx.svg" alt="Logo" width={35} height={21.88} />
+          <div>
+            <Image
+              className="pointer-events-none max-w-8 select-none"
+              src={imgLogo}
+              alt="Logo"
+            />
+          </div>
           <span>© 2024 Andrzej Sienkiewicz</span>
         </div>
       </div>

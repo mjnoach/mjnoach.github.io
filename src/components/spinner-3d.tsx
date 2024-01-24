@@ -1,5 +1,4 @@
-import { useRef } from 'react'
-import React from 'react'
+import React, { useRef } from 'react'
 
 import type { SPEObject, Application as SplineApp } from '@splinetool/runtime'
 

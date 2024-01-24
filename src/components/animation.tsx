@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react'
 
-import { m, stagger, useAnimate } from 'framer-motion'
+import { LazyMotion, domAnimation, m, stagger, useAnimate } from 'framer-motion'
 
-export function useSlideInAnimation() {
+export function useMenuSlideIn() {
   const [scope, animate] = useAnimate()
 
   useEffect(() => {
@@ -36,13 +36,15 @@ export function MenuHover({
   )
 }
 
-export function ButtonHover({
+export function Hover({
   className,
   children,
 }: React.HTMLAttributes<HTMLElement>) {
   return (
-    <m.div className="cursor-pointer" whileHover={{ scale: 1.1 }}>
-      {children}
-    </m.div>
+    <LazyMotion features={domAnimation}>
+      <m.div className="cursor-pointer" whileHover={{ scale: 1.1 }}>
+        {children}
+      </m.div>
+    </LazyMotion>
   )
 }

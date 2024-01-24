@@ -5,11 +5,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import {
-  ButtonHover,
-  MenuHover,
-  useSlideInAnimation,
-} from '@/components/animation'
+import { Hover, MenuHover, useMenuSlideIn } from '@/components/animation'
 import { ContactForm } from '@/components/contact-form'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
@@ -18,11 +14,15 @@ import { Button } from '@/components/ui/button'
 import { useParallax, useWindowSize } from '@/lib/hooks'
 import { getBreakpointWidth } from '@/lib/utils'
 
+import imgAppLaunch from '../../public/app-launch.svg'
+import imgFinanceGrowth from '../../public/finance-growth.svg'
+import imgLogo from '../../public/itx.svg'
+
 import { LazyMotion, domAnimation, m, useScroll } from 'framer-motion'
 import { Mail, Phone } from 'lucide-react'
 
 export default function Home() {
-  const slideInAnimation = useSlideInAnimation()
+  const slideInAnimation = useMenuSlideIn()
   const size = useWindowSize()
   const menuContainerRef = useRef(null)
   const menuRef = useRef(null)
@@ -32,7 +32,7 @@ export default function Home() {
     // @ts-ignore
     menuContainerRef.current?.clientHeight -
       // @ts-ignore
-      menuRef.current?.clientHeight * 0.6,
+      menuRef.current?.clientHeight * 1.2,
     0,
   ])
 
@@ -43,18 +43,17 @@ export default function Home() {
   return (
     <main>
       <section className="relative flex min-h-screen w-full select-none flex-col">
-        {/* <BubblesBackground /> */}
+        {/* <LazyMotion features={domAnimation}>
+          <BackgroundBubbles />
+        </LazyMotion> */}
         <ModeToggle className="absolute right-0 top-0 mr-10 mt-10" />
-        <div className="flex grow flex-col gap-12 px-12 pb-12 pt-24 md:container md:gap-24 md:p-24">
+        <div className="flex grow flex-col gap-12 px-12 pb-12 pt-24 md:container md:gap-0 md:p-24">
           <div>
             <h1>Andrzej Sienkiewicz</h1>
             <Image
-              className="pointer-events-none my-10"
-              src="/itx.svg"
+              className="pointer-events-none my-10 max-w-48"
+              src={imgLogo}
               alt="Logo"
-              width={180}
-              height={113.44}
-              priority
             />
           </div>
           <div
@@ -62,7 +61,7 @@ export default function Home() {
             className="relative flex grow flex-col items-center justify-evenly gap-12 md:flex-row md:items-start md:justify-between"
           >
             <LazyMotion features={domAnimation}>
-              <m.div ref={menuRef} style={parallaxStyle}>
+              <m.div className="md:mt-24" ref={menuRef} style={parallaxStyle}>
                 <ul className="space-y-5" ref={slideInAnimation}>
                   <li>
                     <MenuHover>
@@ -87,23 +86,19 @@ export default function Home() {
                   </li>
                 </ul>
               </m.div>
-            </LazyMotion>
-            {/* <div className="self-end h-full w-full max-w-2xl">
-              <Spinner3D />
-            </div> */}
-            <LazyMotion features={domAnimation}>
+              {/* <div className="self-end h-full w-full max-w-2xl">
+                <Spinner3D />
+              </div> */}
               <m.div
-                className="h-full w-full max-w-2xl self-end"
+                className="mx-auto h-full w-full max-w-md self-end lg:mx-0 lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl"
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
                 <Image
-                  className="pointer-events-none w-full dark:invert"
-                  src="https://illustrations.popsy.co/white/app-launch.svg"
+                  className="pointer-events-none dark:invert"
+                  src={imgAppLaunch}
                   alt="Illustration"
-                  width={0}
-                  height={0}
                   priority
                 />
               </m.div>
@@ -156,7 +151,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex justify-end gap-5">
-            <ButtonHover>
+            <Hover>
               <a
                 href="https://github.com/mjnoach"
                 target="_blank"
@@ -164,14 +159,14 @@ export default function Home() {
               >
                 <Image
                   src="/github.svg"
-                  alt="Logo"
-                  width={40}
-                  height={40}
+                  alt="GitHub Logo"
+                  width={50}
+                  height={50}
                   priority
                 />
               </a>
-            </ButtonHover>
-            <ButtonHover>
+            </Hover>
+            <Hover>
               <a
                 href="https://www.linkedin.com/in/andrzej-sienkiewicz/"
                 target="_blank"
@@ -179,13 +174,13 @@ export default function Home() {
               >
                 <Image
                   src="/linkedin.svg"
-                  alt="Logo"
-                  width={40}
-                  height={40}
+                  alt="LinkedIn Logo"
+                  width={50}
+                  height={50}
                   priority
                 />
               </a>
-            </ButtonHover>
+            </Hover>
           </div>
         </div>
       </section>
@@ -199,36 +194,23 @@ export default function Home() {
           </h4>
           <div className="grid grid-cols-1 gap-10 p-4 md:grid-cols-2">
             <Image
-              // src="https://illustrations.popsy.co/white/shaking-hands.svg"
-              // src="https://illustrations.popsy.co/white/romantic-dinner.svg"
-              // src="https://illustrations.popsy.co/white/hitchhiking.svg"
-              // src="https://illustrations.popsy.co/white/online-dating.svg"
-              // src="https://illustrations.popsy.co/white/video-call.svg"
-              // src="https://illustrations.popsy.co/white/telephone-call.svg"
-              // src="https://illustrations.popsy.co/white/question-mark.svg"
-              // src="https://illustrations.popsy.co/white/success.svg"
-              // src="https://illustrations.popsy.co/white/man-riding-a-rocket.svg"
-              // src="https://illustrations.popsy.co/white/communication.svg"
-              // src="https://illustrations.popsy.co/white/freelancer.svg"
-              src="https://illustrations.popsy.co/white/finance-growth.svg"
-              className="pointer-events-none -mb-14 -mt-20 w-full select-none dark:invert md:-mb-28"
+              src={imgFinanceGrowth}
+              className="pointer-events-none -mb-14 -mt-20 select-none dark:invert md:-mb-28"
               alt="Illustration"
-              width={400}
-              height={37}
             />
             <ContactForm />
           </div>
           <div className="flex justify-end gap-5">
-            <ButtonHover>
+            <Hover>
               <Button>
                 <Mail className="h-5 w-5" />
               </Button>
-            </ButtonHover>
-            <ButtonHover>
+            </Hover>
+            <Hover>
               <Button>
                 <Phone className="h-5 w-5" />
               </Button>
-            </ButtonHover>
+            </Hover>
           </div>
         </div>
       </section>
