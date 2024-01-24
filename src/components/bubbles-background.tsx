@@ -1,9 +1,9 @@
+import { useWindowSize } from '@/lib/hooks'
 import { cn } from '@/lib/utils'
-import { useWindowSize } from '@uidotdev/usehooks'
 import { m, useAnimation } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
-const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
+const BubblesBackground = ({ numBubbles = 5 }: { numBubbles?: number }) => {
   const size = useWindowSize()
   const [bubbles, setBubbles] = useState<
     {
@@ -19,14 +19,10 @@ const BubblesBackground = ({ numBubbles = 10 }: { numBubbles?: number }) => {
     const createBubbles = (count: number) => {
       return Array.from({ length: count }, (_, index) => ({
         id: index,
-        x: Math.random() * Number(size.width),
-        y: Math.random() * Number(size.height),
-        // TODO
-        // scale according to screen width
-        scale: Math.random() * 4,
-        // TODO
-        // set more strict visibility range
-        opacity: Math.random() * 0.1,
+        x: Math.random() * size.width,
+        y: Math.random() * size.height,
+        scale: Math.random() * size.width * 0.5,
+        opacity: Math.random() * 0.2,
       }))
     }
 
@@ -82,8 +78,8 @@ const useAnimatedBubble = (id: number) => {
 
   useEffect(() => {
     controls.start({
-      x: Math.random() * Number(size.width),
-      y: Math.random() * Number(size.height),
+      x: Math.random() * size.width,
+      y: Math.random() * size.height,
       transition: {
         duration: Math.random() * 40 + 2,
         repeat: Infinity,

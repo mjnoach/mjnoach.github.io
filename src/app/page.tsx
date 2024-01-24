@@ -2,7 +2,6 @@
 
 import { Mail, Phone } from 'lucide-react'
 
-import { useWindowSize } from '@uidotdev/usehooks'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -14,9 +13,8 @@ import {
 import { ContactForm } from '@/components/contact-form'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
-import { Spinner3D } from '@/components/spinner-3d'
 import { Button } from '@/components/ui/button'
-import { useParallax } from '@/lib/hooks'
+import { useParallax, useWindowSize } from '@/lib/hooks'
 import { getBreakpointWidth } from '@/lib/utils'
 import { LazyMotion, domAnimation, m, useScroll } from 'framer-motion'
 import { useRef } from 'react'
@@ -38,20 +36,18 @@ export default function Home() {
 
   const parallaxStyle =
     // enable paralllax only on tablet and desktop
-    Number(size.width) >= getBreakpointWidth('md')
-      ? { y: parallaxProgress }
-      : {}
+    size.width >= getBreakpointWidth('md') ? { y: parallaxProgress } : {}
 
   return (
     <main>
-      <section className="relative w-full flex min-h-screen flex-col">
+      <section className="relative w-full flex min-h-screen flex-col select-none">
         {/* <BubblesBackground /> */}
         <ModeToggle className="absolute right-0 top-0 mr-10 mt-10" />
         <div className="md:container flex flex-col grow gap-12 md:gap-24 pt-24 px-12 pb-12 md:p-24">
           <div>
             <h1>Andrzej Sienkiewicz</h1>
             <Image
-              className="my-10"
+              className="my-10 pointer-events-none"
               src="/itx.svg"
               alt="Logo"
               width={180}
@@ -90,10 +86,10 @@ export default function Home() {
                 </ul>
               </m.div>
             </LazyMotion>
-            <div className="self-end h-full w-full max-w-2xl">
+            {/* <div className="self-end h-full w-full max-w-2xl">
               <Spinner3D />
-            </div>
-            {/* <LazyMotion features={domAnimation}>
+            </div> */}
+            <LazyMotion features={domAnimation}>
               <m.div
                 className="self-end h-full w-full max-w-2xl"
                 initial={{ opacity: 0, y: 100 }}
@@ -101,7 +97,7 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
               >
                 <Image
-                  className="dark:invert"
+                  className="dark:invert w-full pointer-events-none"
                   src="https://illustrations.popsy.co/white/app-launch.svg"
                   alt="Illustration"
                   width={0}
@@ -109,7 +105,7 @@ export default function Home() {
                   priority
                 />
               </m.div>
-            </LazyMotion> */}
+            </LazyMotion>
           </div>
         </div>
       </section>
@@ -213,7 +209,7 @@ export default function Home() {
               // src="https://illustrations.popsy.co/white/communication.svg"
               // src="https://illustrations.popsy.co/white/freelancer.svg"
               src="https://illustrations.popsy.co/white/finance-growth.svg"
-              className="dark:invert w-full -mt-20 -mb-14 md:-mb-28"
+              className="dark:invert w-full -mt-20 -mb-14 md:-mb-28 pointer-events-none select-none"
               alt="Illustration"
               width={400}
               height={37}
