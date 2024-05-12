@@ -6,6 +6,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Hover, MenuHover, useMenuSlideIn } from '@/components/animation'
+import { GithubButton } from '@/components/buttons/github'
+import { LinkedinButton } from '@/components/buttons/linkedin'
 import { ContactForm } from '@/components/contact-form'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioCarousel } from '@/components/portfolio-carousel'
@@ -151,36 +153,8 @@ export default function Home() {
             </p>
           </div>
           <div className="flex justify-end gap-5">
-            <Hover>
-              <a
-                href="https://github.com/mjnoach"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Image
-                  src="/github.svg"
-                  alt="GitHub Logo"
-                  width={50}
-                  height={50}
-                  priority
-                />
-              </a>
-            </Hover>
-            <Hover>
-              <a
-                href="https://www.linkedin.com/in/andrzej-sienkiewicz/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Image
-                  src="/linkedin.svg"
-                  alt="LinkedIn Logo"
-                  width={50}
-                  height={50}
-                  priority
-                />
-              </a>
-            </Hover>
+            <GithubButton href="https://github.com/mjnoach" />
+            <LinkedinButton />
           </div>
         </div>
       </section>
@@ -211,6 +185,16 @@ export default function Home() {
                 <Phone className="h-5 w-5" />
               </Button>
             </Hover>
+            {/* <Hover>
+              <Button size={'icon'} className="h-[40px] w-[40px]">
+                <Mail className="h-6 w-6" />
+              </Button>
+            </Hover>
+            <Hover>
+              <Button size={'icon'} className="h-[40px] w-[40px]">
+                <Phone className="h-6 w-6" />
+              </Button>
+            </Hover> */}
           </div>
         </div>
       </section>
