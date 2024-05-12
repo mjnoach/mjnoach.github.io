@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <main>
-      <section className="relative flex min-h-screen w-full select-none flex-col">
+      <section className="relative flex min-h-screen w-full flex-col">
         {/* <LazyMotion features={domAnimation}>
           <BackgroundBubbles />
         </LazyMotion> */}
@@ -53,29 +53,29 @@ export default function Home() {
           <div>
             <h1>Andrzej Sienkiewicz</h1>
             <Image
-              className="pointer-events-none my-10 max-w-48"
+              className="pointer-events-none my-10 max-w-48 select-none"
               src={imgLogo}
               alt="Logo"
             />
           </div>
           <div
             ref={menuContainerRef}
-            className="relative flex grow flex-col items-center justify-evenly gap-12 md:flex-row md:items-start md:justify-between"
+            className="relative flex grow select-none flex-col items-center justify-evenly gap-12 md:flex-row md:items-start md:justify-between"
           >
             <LazyMotion features={domAnimation}>
               <m.div className="md:mt-24" ref={menuRef} style={parallaxStyle}>
                 <ul className="space-y-5" ref={slideInAnimation}>
                   <li>
                     <MenuHover>
-                      <Link href="#portfolio">
-                        <h3>Portfolio</h3>
+                      <Link href="#about">
+                        <h3>About</h3>
                       </Link>
                     </MenuHover>
                   </li>
                   <li>
                     <MenuHover>
-                      <Link href="#about">
-                        <h3>About</h3>
+                      <Link href="#portfolio">
+                        <h3>Portfolio</h3>
                       </Link>
                     </MenuHover>
                   </li>
@@ -109,12 +109,6 @@ export default function Home() {
         </div>
       </section>
       <hr ref={scrollRef} className="w-full" />
-
-      <section id="portfolio" className="container py-8 md:py-12 lg:py-24">
-        <h2 className="mb-8">Portfolio</h2>
-        <PortfolioCarousel />
-      </section>
-      <hr className="w-full" />
 
       <section id="about" className="container py-8 md:py-12 lg:py-24">
         <h2 className="mb-8">About</h2>
@@ -157,6 +151,12 @@ export default function Home() {
             <LinkedinButton />
           </div>
         </div>
+      </section>
+      <hr className="w-full" />
+
+      <section id="portfolio" className="container py-8 md:py-12 lg:py-24">
+        <h2 className="mb-8">Portfolio</h2>
+        <PortfolioCarousel />
       </section>
       <hr className="w-full" />
 

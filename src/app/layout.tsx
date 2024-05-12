@@ -17,7 +17,7 @@ const fontHeading = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'ITX Andrzej Sienkiewicz',
+  title: 'ITX Consulting Andrzej Sienkiewicz',
   description: 'Developer Portfolio',
 }
 
