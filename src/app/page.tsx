@@ -5,13 +5,12 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Hover, MenuHover, useMenuSlideIn } from '@/components/animation'
+import { MenuHover, useMenuSlideIn } from '@/components/animation'
 import { GithubButton } from '@/components/buttons/github'
 import { LinkedinButton } from '@/components/buttons/linkedin'
 import { ContactForm } from '@/components/contact-form'
 import { ModeToggle } from '@/components/mode-toggle'
-import { PortfolioCarousel } from '@/components/portfolio-carousel'
-import { Button } from '@/components/ui/button'
+import { Portfolio } from '@/components/portfolio'
 
 import { useParallax, useWindowSize } from '@/lib/hooks'
 import { getBreakpointWidth } from '@/lib/utils'
@@ -21,7 +20,6 @@ import imgFinanceGrowth from '../../public/finance-growth.svg'
 import imgLogo from '../../public/itx.svg'
 
 import { LazyMotion, domAnimation, m, useScroll } from 'framer-motion'
-import { Mail, Phone } from 'lucide-react'
 
 export default function Home() {
   const slideInAnimation = useMenuSlideIn()
@@ -43,7 +41,7 @@ export default function Home() {
     size.width >= getBreakpointWidth('md') ? { y: parallaxProgress } : {}
 
   return (
-    <main>
+    <main className="flex flex-col gap-8 md:gap-12 lg:gap-32">
       <section className="relative flex min-h-screen w-full flex-col">
         {/* <LazyMotion features={domAnimation}>
           <BackgroundBubbles />
@@ -107,10 +105,10 @@ export default function Home() {
             </LazyMotion>
           </div>
         </div>
+        <hr ref={scrollRef} className="w-full" />
       </section>
-      <hr ref={scrollRef} className="w-full" />
 
-      <section id="about" className="container py-8 md:py-12 lg:py-24">
+      <section id="about" className="container">
         <h2 className="mb-8">About</h2>
         <div className="mx-auto flex flex-col gap-8 rounded-lg border bg-background p-4">
           <div className="space-y-8 p-4 text-justify text-lg">
@@ -152,15 +150,15 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <hr className="w-full" />
+      {/* <hr className="w-full" /> */}
 
-      <section id="portfolio" className="container py-8 md:py-12 lg:py-24">
+      <section id="portfolio" className="container">
         <h2 className="mb-8">Portfolio</h2>
-        <PortfolioCarousel />
+        <Portfolio />
       </section>
-      <hr className="w-full" />
+      {/* <hr className="w-full" /> */}
 
-      <section id="contact" className="container py-8 md:py-12 lg:py-24">
+      <section id="contact" className="container">
         <h2 className="mb-8">Contact</h2>
         <div className="mx-auto flex flex-col gap-8 rounded-lg border bg-background p-4">
           <h4 className="p-8 text-center">
@@ -172,29 +170,9 @@ export default function Home() {
               className="pointer-events-none -mb-14 -mt-20 select-none dark:invert md:-mb-28"
               alt="Illustration"
             />
-            <ContactForm />
-          </div>
-          <div className="flex justify-end gap-5">
-            <Hover>
-              <Button>
-                <Mail className="h-5 w-5" />
-              </Button>
-            </Hover>
-            <Hover>
-              <Button>
-                <Phone className="h-5 w-5" />
-              </Button>
-            </Hover>
-            {/* <Hover>
-              <Button size={'icon'} className="h-[40px] w-[40px]">
-                <Mail className="h-6 w-6" />
-              </Button>
-            </Hover>
-            <Hover>
-              <Button size={'icon'} className="h-[40px] w-[40px]">
-                <Phone className="h-6 w-6" />
-              </Button>
-            </Hover> */}
+            <div>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>

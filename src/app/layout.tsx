@@ -18,7 +18,7 @@ const fontHeading = localFont({
 
 export const metadata: Metadata = {
   title: 'ITX Consulting Andrzej Sienkiewicz',
-  description: 'Developer Portfolio',
+  description: 'IT Services & Consulting',
 }
 
 export default function RootLayout({

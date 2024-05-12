@@ -40,7 +40,10 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col space-y-8"
+      >
         <FormField
           control={form.control}
           name="email"
@@ -67,7 +70,7 @@ export function ContactForm() {
               <FormLabel className="text-lg">Message</FormLabel>
               <FormControl>
                 <Textarea
-                  className="text-lg"
+                  className="min-h-40 text-lg"
                   placeholder="Enter your message"
                   {...field}
                 />
@@ -76,7 +79,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button className="text-lg" type="submit">
+        <Button className="place-self-start text-lg" type="submit">
           Submit
         </Button>
       </form>
