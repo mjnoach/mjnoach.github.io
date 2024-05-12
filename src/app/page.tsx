@@ -53,6 +53,7 @@ export default function Home() {
             <Image
               className="pointer-events-none my-10 max-w-48 select-none"
               src={imgLogo}
+              priority
               alt="Logo"
             />
           </div>
