@@ -10,8 +10,8 @@ export const LinkedinButton = () => (
       rel="noreferrer"
     >
       <Image
-        className="rounded-xl border-2"
-        src="/linkedin.svg"
+        className="rounded-xl border-2 p-1"
+        src="/linkedin.png"
         alt="LinkedIn Logo"
         width={50}
         height={50}

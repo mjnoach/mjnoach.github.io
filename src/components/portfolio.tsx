@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 import imgStrapi from '../../public/strapi-plugin-cron.png'
 import imgVideoEditor from '../../public/video-editor.png'
+import { ExternalLinkButton } from './buttons/external-link'
 import { GithubButton } from './buttons/github'
 
 export function Portfolio({}: React.HTMLAttributes<HTMLElement>) {
@@ -14,7 +15,7 @@ export function Portfolio({}: React.HTMLAttributes<HTMLElement>) {
       <div className="mx-auto flex flex-col gap-8 rounded-lg border bg-background">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:px-8">
           <div>
-            <h4 className="p-8 text-center">Video Editor & Export Tool</h4>
+            <h4 className="p-8 text-center">Video Trim & Export Tool</h4>
             <div className="space-y-8 p-8 text-justify text-lg md:px-0">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -26,8 +27,9 @@ export function Portfolio({}: React.HTMLAttributes<HTMLElement>) {
                 pulvinar etiam non quam. Ipsum suspendisse ultrices gravida
                 dictum fusce. Amet nisl purus in mollis nunc.
               </p>
-              <div className="flex justify-start">
-                <GithubButton href="https://github.com/mjnoach" />
+              <div className="flex justify-start gap-2">
+                <ExternalLinkButton href="https://vid-export.vercel.app" />
+                {/* <GithubButton href="https://github.com/mjnoach/video-editor" /> */}
               </div>
             </div>
           </div>
@@ -61,6 +63,7 @@ export function Portfolio({}: React.HTMLAttributes<HTMLElement>) {
               </p>
               <div className="flex justify-end">
                 <GithubButton href="https://github.com/mjnoach" />
+                <ExternalLinkButton href="https://www.npmjs.com/package/@innovato/strapi-plugin-cron" />
               </div>
             </div>
           </div>

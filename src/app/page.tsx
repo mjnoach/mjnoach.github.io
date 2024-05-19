@@ -145,7 +145,7 @@ export default function Home() {
               justo eget magna fermentum iaculis eu.
             </p>
           </div>
-          <div className="flex justify-end gap-5">
+          <div className="flex justify-end gap-2">
             <GithubButton href="https://github.com/mjnoach" />
             <LinkedinButton />
           </div>
