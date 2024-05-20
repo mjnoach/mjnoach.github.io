@@ -111,43 +111,41 @@ export default function Home() {
 
       <section id="about" className="container">
         <h2 className="mb-8">About</h2>
-        <div className="mx-auto flex flex-col gap-8 rounded-lg border bg-background p-4">
-          <div className="space-y-8 p-4 text-justify text-lg">
+        <div className="rounded-lg border">
+          <div className="space-y-8 p-8 text-justify text-lg">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis
-              massa sed elementum tempus egestas sed sed risus pretium. Vel quam
-              elementum pulvinar etiam non. Laoreet sit amet cursus sit amet
-              dictum sit amet. Viverra suspendisse potenti nullam ac tortor
-              vitae purus faucibus ornare. Id diam vel quam elementum pulvinar
-              etiam non quam. Ipsum suspendisse ultrices gravida dictum fusce.
-              Amet nisl purus in mollis nunc. Magna sit amet purus gravida quis
-              blandit turpis cursus. Proin libero nunc consequat interdum varius
-              sit. Leo a diam sollicitudin tempor id eu. Lobortis scelerisque
-              fermentum dui faucibus in. Egestas diam in arcu cursus euismod.
-              Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare.
-              Velit euismod in pellentesque massa. Placerat orci nulla
-              pellentesque dignissim enim sit amet. Eros in cursus turpis massa.
-              Neque convallis a cras semper auctor neque vitae tempus quam.
+              I specialize in providing top-tier IT services and consulting,
+              tailored to meet the unique needs of businesses. With extensive
+              expertise in full stack development, my primary technology stack
+              includes TypeScript, React.js, and Node.js, though I have
+              experience with a broad range of technologies and programming
+              languages, such as PHP, SQL, Docker, Kubernetes, GraphQL, and
+              Ruby. My professional background encompasses both independent
+              contracting and full-time roles, collaborating with international
+              teams on remote and on-site projects.
             </p>
             <p>
-              Erat imperdiet sed euismod nisi porta. Laoreet suspendisse
-              interdum consectetur libero. Amet mauris commodo quis imperdiet
-              massa tincidunt nunc pulvinar sapien. A lacus vestibulum sed arcu
-              non. Turpis massa tincidunt dui ut ornare lectus sit. Quis enim
-              lobortis scelerisque fermentum dui. Condimentum vitae sapien
-              pellentesque habitant morbi tristique. Ornare arcu odio ut sem.
-              Aliquam faucibus purus in massa tempor nec feugiat nisl pretium.
-              Id aliquet lectus proin nibh nisl condimentum id. Convallis tellus
-              id interdum velit laoreet id donec ultrices tincidunt. Convallis a
-              cras semper auctor. Sit amet mauris commodo quis imperdiet massa
-              tincidunt. Vulputate ut pharetra sit amet aliquam id diam. Vitae
-              justo eget magna fermentum iaculis eu.
+              My services focus on delivering comprehensive IT solutions, from
+              building and maintaining customer-facing and internal web
+              applications to extending functionalities of existing systems.
+              Additionally, I have experience in improving software release
+              processes, enhancing SEO metrics, and developing open-source
+              projects, showcasing a commitment to innovation and community
+              contributions.
             </p>
-          </div>
-          <div className="flex justify-end gap-2">
-            <GithubButton href="https://github.com/mjnoach" />
-            <LinkedinButton />
+            <p>
+              I am dedicated to providing efficient, reliable, and scalable
+              solutions that drive business success. By leveraging my expertise
+              and logical approach, I help businesses navigate the complexities
+              of technology, ensuring seamless integration and optimal
+              performance. My continuous learning ethos ensures I stay ahead of
+              industry trends, delivering cutting-edge solutions and strategic
+              IT consulting to my clients.
+            </p>
+            <div className="flex justify-end gap-2">
+              <GithubButton href="https://github.com/mjnoach" />
+              <LinkedinButton />
+            </div>
           </div>
         </div>
       </section>
