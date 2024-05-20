@@ -92,3 +92,9 @@
     @apply font-heading text-2xl md:text-3xl lg:text-4xl;
   }
 }
+
+@layer utilities {
+  .center {
+    @apply mx-auto flex flex-col items-center justify-center;
+  }
+}
