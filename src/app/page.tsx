@@ -161,17 +161,17 @@ export default function Home() {
 
       <section id="contact" className="container">
         <h2 className="mb-8">Contact</h2>
-        <div className="mx-auto flex flex-col gap-8 rounded-lg border bg-background p-4">
+        <div className="mx-auto flex flex-col rounded-lg border bg-background pt-0 md:gap-8 md:px-8 md:pb-8">
           <h4 className="p-8 text-center">
             Reach out and let&apos;s work on a project together!
           </h4>
-          <div className="grid grid-cols-1 gap-10 p-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <Image
               src={imgFinanceGrowth}
-              className="pointer-events-none -mb-14 -mt-20 select-none dark:invert md:-mb-28"
+              className="pointer-events-none -mb-20 -mt-14 select-none dark:invert sm:-mb-28 sm:-mt-16 md:-mt-10 lg:-mb-20 lg:-mt-14 xl:-mb-28 xl:-mt-24"
               alt="Illustration"
             />
-            <div>
+            <div className="p-8 md:p-0">
               <ContactForm />
             </div>
           </div>
