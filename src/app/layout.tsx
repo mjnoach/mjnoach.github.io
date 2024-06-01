@@ -5,9 +5,9 @@ import localFont from 'next/font/local'
 import { Footer } from '@/components/footer'
 import { ThemeProvider } from '@/components/theme-provider'
 
-import { cn } from '@/lib/utils'
-
 import './globals.css'
+
+import { cn } from '@/utils'
 
 const inter = Inter({
   subsets: ['latin'],

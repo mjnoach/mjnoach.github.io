@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 
-import { useWindowSize } from '@/lib/hooks'
-import { cn, randomInteger, randomNumber } from '@/lib/utils'
-
+import { useWindowSize } from '@/hooks'
+import { cn, randomInteger, randomNumber } from '@/utils'
 import { m, useAnimate } from 'framer-motion'
 
 const BackgroundBubbles = ({ numBubbles = 12 }: { numBubbles?: number }) => {

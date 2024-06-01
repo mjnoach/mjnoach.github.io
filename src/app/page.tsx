@@ -6,19 +6,21 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { MenuHover, useMenuSlideIn } from '@/components/animation'
+import { ExternalLinkButton } from '@/components/buttons/external-link'
 import { GithubButton } from '@/components/buttons/github'
 import { LinkedinButton } from '@/components/buttons/linkedin'
 import { ContactForm } from '@/components/contact-form'
 import { ModeToggle } from '@/components/mode-toggle'
-import { Portfolio } from '@/components/portfolio'
 
-import { useParallax, useWindowSize } from '@/lib/hooks'
-import { getBreakpointWidth } from '@/lib/utils'
-
-import imgAppLaunch from '../../public/app-launch.svg'
-import imgFinanceGrowth from '../../public/finance-growth.svg'
-import imgLogo from '../../public/itx.svg'
-
+import { useParallax, useWindowSize } from '@/hooks'
+import {
+  contactSectionImage,
+  itxLogo,
+  strapiProjectImage,
+  topSectionImage,
+  videoExportProjectImg,
+} from '@/images'
+import { getBreakpointWidth } from '@/utils'
 import { LazyMotion, domAnimation, m, useScroll } from 'framer-motion'
 
 export default function Home() {
@@ -64,7 +66,7 @@ const TopSection = () => {
           <h1>Andrzej Sienkiewicz</h1>
           <Image
             className="pointer-events-none my-10 max-w-48 select-none"
-            src={imgLogo}
+            src={itxLogo}
             priority
             alt="Logo"
           />
@@ -110,7 +112,7 @@ const TopSection = () => {
             >
               <Image
                 className="pointer-events-none dark:invert"
-                src={imgAppLaunch}
+                src={topSectionImage}
                 alt="Illustration"
                 priority
               />
@@ -168,7 +170,74 @@ const AboutSection = () => (
 const PortfolioSection = () => (
   <section id="portfolio" className="container">
     <h2 className="mb-8">Portfolio</h2>
-    <Portfolio />
+    <div className="flex flex-col gap-24">
+      <div className="rounded-lg border">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:px-8 md:pb-8">
+          <div>
+            <h4 className="p-8 text-center">Video Trim & Export Tool</h4>
+            <div className="space-y-8 p-8 text-justify text-lg md:p-0 md:px-0 lg:pt-8">
+              <p>
+                The Video Trim & Export Tool is a browser-based web application
+                that allows users to upload a video, trim it to the desired
+                length, and export it as MP4, MP3, or GIF. Featuring a clean,
+                modern interface, this tool is built with React.js and leverages
+                ffmpeg.wasm for client-side processing. This ensures quick and
+                secure handling of video files without the need for server-side
+                operations.
+              </p>
+              <div className="flex justify-start gap-2">
+                <ExternalLinkButton href="https://video-export.vercel.app/" />
+                {/* <GithubButton href="https://github.com/mjnoach/video-export" /> */}
+              </div>
+            </div>
+          </div>
+          <div className="row-start-1 md:col-start-2">
+            <h4 className="hidden p-8 text-center md:invisible md:block lg:hidden">
+              Video Trim & Export Tool
+            </h4>
+            <Image
+              src={videoExportProjectImg}
+              className="select-none rounded-lg md:border lg:mt-8"
+              alt="Illustration"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-lg border">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:px-8 md:pb-8">
+          <div>
+            <h4 className="hidden p-8 text-center md:invisible md:block lg:hidden">
+              Strapi Cron Plugin
+            </h4>
+            <Image
+              src={strapiProjectImage}
+              className="select-none rounded-lg md:border lg:mt-8"
+              alt="Illustration"
+            />
+          </div>
+          <div>
+            <h4 className="p-8 text-center">Strapi Cron Plugin</h4>
+            <div className="space-y-8 p-8 text-justify text-lg md:p-0 md:px-0 lg:pt-8">
+              <p>
+                The Strapi Cron Plugin is an open-source addition to the Strapi
+                CMS, designed to simplify the creation, testing, and monitoring
+                of server jobs directly from the CMS dashboard. Built with
+                Node.js and React.js, this plugin adheres to the Strapi Design
+                System guidelines, ensuring seamless integration and a
+                consistent user experience. By providing an intuitive interface,
+                it enhances the functionality of Strapi, improving user
+                workflows and the utility of the CMS.
+              </p>
+              <div className="flex justify-end gap-2">
+                <GithubButton href="https://github.com/innovato/strapi-plugin-cron" />
+                <ExternalLinkButton href="https://www.npmjs.com/package/@innovato/strapi-plugin-cron" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 )
 
@@ -181,7 +250,7 @@ const ContactSection = () => (
       </h4>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <Image
-          src={imgFinanceGrowth}
+          src={contactSectionImage}
           className="pointer-events-none -mb-20 -mt-14 select-none dark:invert sm:-mb-28 sm:-mt-16 md:-mt-10 lg:-mb-20 lg:-mt-14 xl:-mb-28 xl:-mt-24"
           alt="Illustration"
         />
