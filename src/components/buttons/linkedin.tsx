@@ -9,14 +9,16 @@ export const LinkedinButton = () => (
       target="_blank"
       rel="noreferrer"
     >
-      <Image
-        className="rounded-xl border-2 p-1"
-        src="/linkedin.png"
-        alt="LinkedIn Logo"
-        width={50}
-        height={50}
-        priority
-      />
+      <div className="rounded-xl border-2">
+        <Image
+          className="rounded-xl p-1 invert dark:bg-black dark:invert-0"
+          src="/linkedin.png"
+          alt="LinkedIn Logo"
+          width={45}
+          height={45}
+          priority
+        />
+      </div>
     </a>
   </Hover>
 )

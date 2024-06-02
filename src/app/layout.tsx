@@ -20,7 +20,7 @@ const fontHeading = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'ITX Consulting Andrzej Sienkiewicz',
+  title: 'ITX Consulting | Andrzej Sienkiewicz',
   description: 'IT Services & Consulting',
 }
 
@@ -32,12 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, fontHeading.variable)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
           <Footer />
         </ThemeProvider>
