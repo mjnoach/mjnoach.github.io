@@ -93,6 +93,24 @@
   }
 }
 
+@layer components {
+  .buttons-row {
+    @apply flex justify-end gap-2;
+  }
+  .portfolio-entry-container {
+    @apply grid grid-cols-1 gap-10 md:grid-cols-2 md:p-8;
+  }
+  .portfolio-entry-title {
+    @apply mb-16 text-center;
+  }
+  .portfolio-entry-image {
+    @apply mx-auto w-full select-none rounded-t-lg md:rounded-lg md:border;
+  }
+  .portfolio-entry-content {
+    @apply flex grow flex-col justify-between p-8 text-justify text-lg md:p-0;
+  }
+}
+
 @layer utilities {
   .center {
     @apply mx-auto flex flex-col items-center justify-center;

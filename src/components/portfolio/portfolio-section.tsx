@@ -9,7 +9,6 @@ import {
   swiperAppImg,
   videoExportProjectImg,
 } from '@/images'
-import { cn } from '@/utils'
 
 const entries: EntryProps[] = [
   {
@@ -68,7 +67,7 @@ export const PortfolioSection = () => (
     <h2 className="mb-8">Portfolio</h2>
     <div className="flex flex-col gap-24">
       {entries.map((item, index) =>
-        index % 2 ? (
+        !(index % 2) ? (
           <EntryEven
             key={index}
             title={item.title}
@@ -103,17 +102,50 @@ type EntryProps = {
   placeholder?: boolean
 }
 
-const EntryOdd = (props: EntryProps) => {
+const EntryEven = (props: EntryProps) => {
   return (
     <div className="rounded-lg border">
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:px-8 md:pb-8">
+      <div className="portfolio-entry-container">
+        <div>
+          <h4 className="portfolio-entry-title hidden md:invisible md:block lg:hidden">
+            {props.title}
+          </h4>
+          <Image
+            src={props.imageSrc}
+            className={'portfolio-entry-image'}
+            alt={props.title}
+          />
+        </div>
         <div className="flex flex-col">
-          <h4 className="p-8 text-center">{props.title}</h4>
-          <div className="flex grow flex-col justify-between space-y-8 p-8 text-justify text-lg md:p-0 md:px-0 lg:pt-8">
+          <h4 className="portfolio-entry-title">{props.title}</h4>
+          <div className="portfolio-entry-content">
             <p className={props.placeholder ? 'text-center' : ''}>
               {props.description}
             </p>
-            <div className="flex justify-start gap-2">
+            <div className="buttons-row mt-8">
+              {props.links.github && <GithubButton href={props.links.github} />}
+              {props.links.external && (
+                <ExternalLinkButton href={props.links.external} />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const EntryOdd = (props: EntryProps) => {
+  return (
+    <div className="rounded-lg border">
+      <div className="portfolio-entry-container">
+        <div className="flex flex-col">
+          <h4 className="portfolio-entry-title">{props.title}</h4>
+          <div className="portfolio-entry-content">
+            <p className={props.placeholder ? 'text-center' : ''}>
+              {props.description}
+            </p>
+            <div className="buttons-row mt-8 justify-start">
               {props.links.github && <GithubButton href={props.links.github} />}
               {props.links.external && (
                 <ExternalLinkButton href={props.links.external} />
@@ -122,47 +154,14 @@ const EntryOdd = (props: EntryProps) => {
           </div>
         </div>
         <div className="row-start-1 md:col-start-2">
-          <h4 className="hidden p-8 text-center md:invisible md:block lg:hidden">
+          <h4 className="portfolio-entry-title hidden md:invisible md:block lg:hidden">
             {props.title}
           </h4>
           <Image
             src={props.imageSrc}
-            className={cn('select-none rounded-lg md:border lg:mt-8')}
+            className={'portfolio-entry-image'}
             alt={props.title}
           />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const EntryEven = (props: EntryProps) => {
-  return (
-    <div className="rounded-lg border">
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:px-8 md:pb-8">
-        <div>
-          <h4 className="hidden p-8 text-center md:invisible md:block lg:hidden">
-            {props.title}
-          </h4>
-          <Image
-            src={props.imageSrc}
-            className={cn('select-none rounded-lg md:border lg:mt-8')}
-            alt={props.title}
-          />
-        </div>
-        <div className="flex flex-col">
-          <h4 className="p-8 text-center">{props.title}</h4>
-          <div className="flex grow flex-col justify-between space-y-8 p-8 text-justify text-lg md:p-0 md:px-0 lg:pt-8">
-            <p className={props.placeholder ? 'text-center' : ''}>
-              {props.description}
-            </p>
-            <div className="flex justify-end gap-2">
-              {props.links.github && <GithubButton href={props.links.github} />}
-              {props.links.external && (
-                <ExternalLinkButton href={props.links.external} />
-              )}
-            </div>
-          </div>
         </div>
       </div>
     </div>

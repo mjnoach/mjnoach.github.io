@@ -34,7 +34,7 @@ export const AboutSection = () => (
           delivering cutting-edge solutions and strategic IT consulting to my
           clients.
         </p>
-        <div className="flex justify-end gap-2">
+        <div className="buttons-row">
           <GithubButton href="https://github.com/mjnoach" />
           <LinkedinButton />
         </div>
