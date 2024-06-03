@@ -4,14 +4,14 @@ import React from 'react'
 
 import Image from 'next/image'
 
-import { Card, CardContent } from './ui/card'
+import { Card, CardContent } from '../ui/card'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from './ui/carousel'
+} from '../ui/carousel'
 
 import { strapiProjectImage } from '@/images'
 import { LazyMotion, domAnimation, m } from 'framer-motion'

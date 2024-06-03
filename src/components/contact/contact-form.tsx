@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 
-import { Textarea } from './ui/textarea'
+import { Textarea } from '../ui/textarea'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
