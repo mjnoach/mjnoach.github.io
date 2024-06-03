@@ -3,7 +3,13 @@ import Image, { StaticImageData } from 'next/image'
 import { ExternalLinkButton } from '../buttons/external-link'
 import { GithubButton } from '../buttons/github'
 
-import { strapiProjectImage, videoExportProjectImg } from '@/images'
+import {
+  placeholderImg,
+  strapiProjectImage,
+  swiperAppImg,
+  videoExportProjectImg,
+} from '@/images'
+import { cn } from '@/utils'
 
 const entries: EntryProps[] = [
   {
@@ -35,28 +41,50 @@ const entries: EntryProps[] = [
       external: 'https://www.npmjs.com/package/@innovato/strapi-plugin-cron',
     },
   },
+  {
+    title: 'Swiper App',
+    placeholder: true,
+    description: `Update coming soon...`,
+    imageSrc: swiperAppImg,
+    links: {
+      github: 'https://github.com/mjnoach/swiper-app',
+      external: '',
+    },
+  },
+  {
+    title: 'Shareboard',
+    placeholder: true,
+    description: `Update coming soon...`,
+    imageSrc: placeholderImg,
+    links: {
+      github: 'https://github.com/mjnoach/shareboard',
+      external: '',
+    },
+  },
 ]
 
 export const PortfolioSection = () => (
   <section id="portfolio" className="container">
     <h2 className="mb-8">Portfolio</h2>
     <div className="flex flex-col gap-24">
-      {entries.map((entry, index) =>
+      {entries.map((item, index) =>
         index % 2 ? (
           <EntryEven
             key={index}
-            title={entry.title}
-            description={entry.description}
-            imageSrc={entry.imageSrc}
-            links={entry.links}
+            title={item.title}
+            description={item.description}
+            imageSrc={item.imageSrc}
+            links={item.links}
+            placeholder={item.placeholder}
           />
         ) : (
           <EntryOdd
             key={index}
-            title={entry.title}
-            description={entry.description}
-            imageSrc={entry.imageSrc}
-            links={entry.links}
+            title={item.title}
+            description={item.description}
+            imageSrc={item.imageSrc}
+            links={item.links}
+            placeholder={item.placeholder}
           />
         )
       )}
@@ -72,16 +100,19 @@ type EntryProps = {
     github: string
     external: string
   }
+  placeholder?: boolean
 }
 
 const EntryOdd = (props: EntryProps) => {
   return (
     <div className="rounded-lg border">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:px-8 md:pb-8">
-        <div>
+        <div className="flex flex-col">
           <h4 className="p-8 text-center">{props.title}</h4>
-          <div className="space-y-8 p-8 text-justify text-lg md:p-0 md:px-0 lg:pt-8">
-            <p>{props.description}</p>
+          <div className="flex grow flex-col justify-between space-y-8 p-8 text-justify text-lg md:p-0 md:px-0 lg:pt-8">
+            <p className={props.placeholder ? 'text-center' : ''}>
+              {props.description}
+            </p>
             <div className="flex justify-start gap-2">
               {props.links.github && <GithubButton href={props.links.github} />}
               {props.links.external && (
@@ -96,7 +127,7 @@ const EntryOdd = (props: EntryProps) => {
           </h4>
           <Image
             src={props.imageSrc}
-            className="select-none rounded-lg md:border lg:mt-8"
+            className={cn('select-none rounded-lg md:border lg:mt-8')}
             alt={props.title}
           />
         </div>
@@ -115,14 +146,16 @@ const EntryEven = (props: EntryProps) => {
           </h4>
           <Image
             src={props.imageSrc}
-            className="select-none rounded-lg md:border lg:mt-8"
+            className={cn('select-none rounded-lg md:border lg:mt-8')}
             alt={props.title}
           />
         </div>
-        <div>
+        <div className="flex flex-col">
           <h4 className="p-8 text-center">{props.title}</h4>
-          <div className="space-y-8 p-8 text-justify text-lg md:p-0 md:px-0 lg:pt-8">
-            <p>{props.description}</p>
+          <div className="flex grow flex-col justify-between space-y-8 p-8 text-justify text-lg md:p-0 md:px-0 lg:pt-8">
+            <p className={props.placeholder ? 'text-center' : ''}>
+              {props.description}
+            </p>
             <div className="flex justify-end gap-2">
               {props.links.github && <GithubButton href={props.links.github} />}
               {props.links.external && (
