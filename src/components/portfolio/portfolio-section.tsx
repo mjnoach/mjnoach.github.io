@@ -9,6 +9,7 @@ import {
   swiperAppImg,
   videoExportProjectImg,
 } from '@/images'
+import { cn } from '@/utils'
 
 const entries: EntryProps[] = [
   {
@@ -19,7 +20,7 @@ const entries: EntryProps[] = [
         tool is built with React.js and leverages ffmpeg.wasm for client-side
         processing. This ensures quick and secure handling of video files
         without the need for server-side operations.`,
-    imageSrc: videoExportProjectImg,
+    image: { src: videoExportProjectImg },
     links: {
       github: 'https://github.com/mjnoach/video-export',
       external: 'https://video-export.vercel.app',
@@ -34,7 +35,7 @@ const entries: EntryProps[] = [
         seamless integration and a consistent user experience. By providing an
         intuitive interface, it enhances the functionality of Strapi, improving
         user workflows and the utility of the CMS.`,
-    imageSrc: strapiProjectImage,
+    image: { src: strapiProjectImage },
     links: {
       github: 'https://github.com/innovato/strapi-plugin-cron',
       external: 'https://www.npmjs.com/package/@innovato/strapi-plugin-cron',
@@ -44,7 +45,7 @@ const entries: EntryProps[] = [
     title: 'Swiper App',
     placeholder: true,
     description: `Update coming soon...`,
-    imageSrc: swiperAppImg,
+    image: { src: swiperAppImg },
     links: {
       github: 'https://github.com/mjnoach/swiper-app',
       external: '',
@@ -54,7 +55,7 @@ const entries: EntryProps[] = [
     title: 'Shareboard',
     placeholder: true,
     description: `Update coming soon...`,
-    imageSrc: placeholderImg,
+    image: { src: placeholderImg, style: 'object-center' },
     links: {
       github: 'https://github.com/mjnoach/shareboard',
       external: '',
@@ -72,7 +73,7 @@ export const PortfolioSection = () => (
             key={index}
             title={item.title}
             description={item.description}
-            imageSrc={item.imageSrc}
+            image={item.image}
             links={item.links}
             placeholder={item.placeholder}
           />
@@ -81,7 +82,7 @@ export const PortfolioSection = () => (
             key={index}
             title={item.title}
             description={item.description}
-            imageSrc={item.imageSrc}
+            image={item.image}
             links={item.links}
             placeholder={item.placeholder}
           />
@@ -94,7 +95,10 @@ export const PortfolioSection = () => (
 type EntryProps = {
   title: string
   description: string
-  imageSrc: string | StaticImageData
+  image: {
+    src: string | StaticImageData
+    style?: string
+  }
   links: {
     github: string
     external: string
@@ -107,12 +111,9 @@ const EntryEven = (props: EntryProps) => {
     <div className="rounded-lg border">
       <div className="portfolio-entry-container">
         <div>
-          <h4 className="portfolio-entry-title hidden md:invisible md:block lg:hidden">
-            {props.title}
-          </h4>
           <Image
-            src={props.imageSrc}
-            className={'portfolio-entry-image'}
+            src={props.image.src}
+            className={cn('portfolio-entry-image', props.image.style)}
             alt={props.title}
           />
         </div>
@@ -154,12 +155,9 @@ const EntryOdd = (props: EntryProps) => {
           </div>
         </div>
         <div className="row-start-1 md:col-start-2">
-          <h4 className="portfolio-entry-title hidden md:invisible md:block lg:hidden">
-            {props.title}
-          </h4>
           <Image
-            src={props.imageSrc}
-            className={'portfolio-entry-image'}
+            src={props.image.src}
+            className={cn('portfolio-entry-image', props.image.style)}
             alt={props.title}
           />
         </div>

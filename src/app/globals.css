@@ -105,6 +105,7 @@
   }
   .portfolio-entry-image {
     @apply mx-auto w-full select-none rounded-t-lg md:rounded-lg md:border;
+    @apply md:aspect-square md:object-cover md:object-left;
   }
   .portfolio-entry-content {
     @apply flex grow flex-col justify-between p-8 text-justify text-lg md:p-0;
