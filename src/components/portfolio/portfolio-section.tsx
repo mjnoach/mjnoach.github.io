@@ -66,7 +66,7 @@ const entries: EntryProps[] = [
 export const PortfolioSection = () => (
   <section id="portfolio" className="container">
     <h2 className="section-heading">Portfolio</h2>
-    <div className="flex flex-col gap-24">
+    <div className="flex flex-col gap-20 lg:gap-24">
       {entries.map((item, index) =>
         !(index % 2) ? (
           <EntryEven

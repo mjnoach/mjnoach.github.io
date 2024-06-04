@@ -36,7 +36,7 @@ export default function Home() {
     size.width >= getBreakpointWidth('md') ? { y: parallaxProgress } : {}
 
   return (
-    <main className="flex flex-col gap-8 md:gap-12 lg:gap-32">
+    <main className="flex flex-col gap-24 lg:gap-32">
       <section className="relative flex min-h-screen w-full flex-col">
         {/* <LazyMotion features={domAnimation}>
           <BackgroundBubbles />
