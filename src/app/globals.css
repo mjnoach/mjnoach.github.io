@@ -94,7 +94,7 @@
 }
 
 @layer components {
-  .section-title {
+  .section-heading {
     @apply mb-8;
   }
   .button {
