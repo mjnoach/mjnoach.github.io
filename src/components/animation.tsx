@@ -43,7 +43,7 @@ export function Hover({
 }: React.HTMLAttributes<HTMLElement>) {
   return (
     <LazyMotion features={domAnimation}>
-      <m.div className="cursor-pointer" whileHover={{ scale: 1.1 }}>
+      <m.div className="flex h-fit cursor-pointer" whileHover={{ scale: 1.1 }}>
         {children}
       </m.div>
     </LazyMotion>

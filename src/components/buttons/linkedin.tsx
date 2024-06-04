@@ -9,17 +9,16 @@ export const LinkedinButton = () => (
       href="https://www.linkedin.com/in/andrzej-sienkiewicz/"
       target="_blank"
       rel="noreferrer"
+      className="button inline-block"
     >
-      <div className="button">
-        <Image
-          className="rounded-xl p-1 invert dark:bg-black dark:invert-0"
-          src={`${basePath}/linkedin.png`}
-          alt="LinkedIn Logo"
-          width={45}
-          height={45}
-          priority
-        />
-      </div>
+      <Image
+        className="rounded-xl p-1 invert dark:bg-black dark:invert-0"
+        src={`${basePath}/linkedin.png`}
+        alt="LinkedIn Logo"
+        width={45}
+        height={45}
+        priority
+      />
     </a>
   </Hover>
 )
