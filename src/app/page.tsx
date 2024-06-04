@@ -6,34 +6,28 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { AboutSection } from '@/components/about/about-section'
-import { MenuHover, useMenuSlideIn } from '@/components/animation'
+import {
+  MenuHover,
+  useParallaxAnimation,
+  useStackedSlideDownAnimation,
+} from '@/components/animation'
 import { ContactSection } from '@/components/contact/contact-section'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioSection } from '@/components/portfolio/portfolio-section'
 
-import { useParallax, useWindowSize } from '@/hooks'
 import { itxLogo, topSectionImage } from '@/images'
-import { getBreakpointWidth } from '@/utils'
-import { LazyMotion, domAnimation, m, useScroll } from 'framer-motion'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 
 export default function Home() {
-  const slideInAnimation = useMenuSlideIn()
-  const size = useWindowSize()
-  const menuContainerRef = useRef(null)
-  const menuRef = useRef(null)
-  const scrollRef = useRef(null)
-  const { scrollYProgress } = useScroll({ target: scrollRef })
-  const parallaxProgress = useParallax(scrollYProgress, [
-    // @ts-ignore
-    menuContainerRef.current?.clientHeight -
-      // @ts-ignore
-      menuRef.current?.clientHeight * 1.2,
-    0,
-  ])
-
-  const parallaxStyle =
-    // enable paralllax only on tablet and desktop
-    size.width >= getBreakpointWidth('md') ? { y: parallaxProgress } : {}
+  const menuAnimation = useStackedSlideDownAnimation()
+  const parallaxContainer = useRef(null)
+  const parallaxBoundary = useRef(null)
+  const parallaxTarget = useRef(null)
+  const parallaxStyle = useParallaxAnimation(
+    parallaxContainer,
+    parallaxTarget,
+    parallaxBoundary
+  )
 
   return (
     <main className="flex flex-col gap-24 lg:gap-32">
@@ -53,12 +47,16 @@ export default function Home() {
             />
           </div>
           <div
-            ref={menuContainerRef}
+            ref={parallaxContainer}
             className="relative flex grow select-none flex-col items-center justify-evenly gap-12 md:flex-row md:items-start md:justify-between"
           >
             <LazyMotion features={domAnimation}>
-              <m.div className="md:mt-24" ref={menuRef} style={parallaxStyle}>
-                <ul className="space-y-5" ref={slideInAnimation}>
+              <m.div
+                className="md:mt-24"
+                ref={parallaxTarget}
+                style={parallaxStyle}
+              >
+                <ul className="space-y-5" ref={menuAnimation}>
                   <li>
                     <MenuHover>
                       <Link href="#about">
@@ -101,7 +99,7 @@ export default function Home() {
             </LazyMotion>
           </div>
         </div>
-        <hr ref={scrollRef} className="w-full" />
+        <hr ref={parallaxBoundary} className="w-full" />
       </section>
 
       <AboutSection />

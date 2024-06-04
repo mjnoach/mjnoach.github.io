@@ -1,10 +1,40 @@
 'use client'
 
-import { useEffect } from 'react'
+import { RefObject, useEffect } from 'react'
 
-import { LazyMotion, domAnimation, m, stagger, useAnimate } from 'framer-motion'
+import { useParallax } from '@/hooks'
+import { getBreakpointWidth } from '@/utils'
+import { useWindowSize } from '@uidotdev/usehooks'
+import {
+  LazyMotion,
+  domAnimation,
+  m,
+  stagger,
+  useAnimate,
+  useScroll,
+} from 'framer-motion'
 
-export function useMenuSlideIn() {
+export function useParallaxAnimation(
+  parallaxContainer: RefObject<HTMLElement>,
+  parallaxTarget: RefObject<HTMLElement>,
+  parallaxBoundary: RefObject<HTMLElement>
+) {
+  const size = useWindowSize() as { width: number }
+  const { scrollYProgress } = useScroll({ target: parallaxBoundary })
+  const offsetFactor = 1.2
+  const parallaxProgress = useParallax(scrollYProgress, [
+    parallaxContainer.current?.clientHeight! -
+      parallaxTarget.current?.clientHeight! * offsetFactor,
+    0,
+  ])
+  // enable paralllax only on tablet and desktop
+  const parallaxStyle =
+    size.width >= getBreakpointWidth('md') ? { y: parallaxProgress } : {}
+
+  return parallaxStyle
+}
+
+export function useStackedSlideDownAnimation() {
   const [scope, animate] = useAnimate()
 
   useEffect(() => {
