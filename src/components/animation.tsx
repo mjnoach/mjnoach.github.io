@@ -16,7 +16,8 @@ export function useMenuSlideIn() {
         delay: stagger(0.1, { startDelay: 0.15, from: 'last' }),
       }
     )
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return scope
 }
