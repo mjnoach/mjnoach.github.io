@@ -3,8 +3,8 @@ import { LinkedinButton } from '../buttons/linkedin'
 
 export const AboutSection = () => (
   <section id="about" className="container">
-    <h2 className="mb-8">About</h2>
-    <div className="rounded-lg border">
+    <h2 className="section-title">About</h2>
+    <div className="frame-border">
       <div className="space-y-8 p-8 text-justify text-lg">
         <p>
           I specialize in providing top-tier IT services and consulting,

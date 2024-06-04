@@ -10,7 +10,7 @@ export const LinkedinButton = () => (
       target="_blank"
       rel="noreferrer"
     >
-      <div className="rounded-xl border-2">
+      <div className="button">
         <Image
           className="rounded-xl p-1 invert dark:bg-black dark:invert-0"
           src={`${basePath}/linkedin.png`}

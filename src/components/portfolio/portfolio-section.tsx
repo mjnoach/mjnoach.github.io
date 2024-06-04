@@ -65,7 +65,7 @@ const entries: EntryProps[] = [
 
 export const PortfolioSection = () => (
   <section id="portfolio" className="container">
-    <h2 className="mb-8">Portfolio</h2>
+    <h2 className="section-title">Portfolio</h2>
     <div className="flex flex-col gap-24">
       {entries.map((item, index) =>
         !(index % 2) ? (
@@ -108,7 +108,7 @@ type EntryProps = {
 
 const EntryEven = (props: EntryProps) => {
   return (
-    <div className="rounded-lg border">
+    <div className="frame-border">
       <div className="portfolio-entry-container">
         <div>
           <Image
@@ -138,7 +138,7 @@ const EntryEven = (props: EntryProps) => {
 
 const EntryOdd = (props: EntryProps) => {
   return (
-    <div className="rounded-lg border">
+    <div className="frame-border">
       <div className="portfolio-entry-container">
         <div className="flex flex-col">
           <h4 className="portfolio-entry-title">{props.title}</h4>

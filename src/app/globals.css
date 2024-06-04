@@ -94,6 +94,12 @@
 }
 
 @layer components {
+  .section-title {
+    @apply mb-8;
+  }
+  .button {
+    @apply rounded-xl border-2;
+  }
   .buttons-row {
     @apply flex justify-end gap-2;
   }
@@ -115,5 +121,8 @@
 @layer utilities {
   .center {
     @apply mx-auto flex flex-col items-center justify-center;
+  }
+  .frame-border {
+    @apply rounded-lg border;
   }
 }
