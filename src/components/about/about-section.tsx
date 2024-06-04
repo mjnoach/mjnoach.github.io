@@ -5,7 +5,7 @@ export const AboutSection = () => (
   <section id="about" className="container">
     <h2 className="section-heading">About</h2>
     <div className="frame-border">
-      <div className="space-y-8 p-8 text-justify text-lg">
+      <div className="space-y-8 p-4 text-justify text-lg sm:p-8">
         <p>
           I specialize in providing top-tier IT services and consulting,
           tailored to meet the unique needs of businesses. With extensive

@@ -7,7 +7,7 @@ import { contactSectionImage } from '@/images'
 export const ContactSection = () => (
   <section id="contact" className="container">
     <h2 className="section-heading">Contact</h2>
-    <div className="frame-border mx-auto flex flex-col bg-background p-8">
+    <div className="frame-border mx-auto flex flex-col bg-background p-4 sm:p-8">
       <h4 className="mb-16 text-center">
         Reach out and let&apos;s work on a project together!
       </h4>
