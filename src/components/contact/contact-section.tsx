@@ -14,7 +14,7 @@ export const ContactSection = () => (
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <Image
           src={contactSectionImage}
-          className="pointer-events-none -mb-20 -mt-14 select-none dark:invert sm:-mb-28 sm:-mt-16 md:-mt-10 lg:-mb-20 lg:-mt-14 xl:-mb-28 xl:-mt-24"
+          className="pointer-events-none -my-20 -mb-16 select-none dark:invert md:-mt-10 lg:-mb-24 lg:-mt-16 xl:-mb-28 xl:-mt-24"
           alt="Illustration"
         />
         <ContactForm />
