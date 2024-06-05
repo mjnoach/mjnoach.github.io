@@ -108,7 +108,7 @@
     @apply grid grid-cols-1 gap-10 md:grid-cols-2 md:p-8;
   }
   .portfolio-entry-image {
-    @apply mx-auto w-full select-none rounded-t-lg md:rounded-lg md:border;
+    @apply mx-auto w-full select-none rounded-t-lg md:rounded-lg;
     @apply md:aspect-square md:object-cover md:object-left;
   }
   .portfolio-entry-title {
