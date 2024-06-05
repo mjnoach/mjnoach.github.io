@@ -1,9 +1,8 @@
-const production = process.env.NODE_ENV === 'production'
+const isDev = process.env.NODE_ENV === 'development'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: production ? 'export' : undefined,
-  basePath: production ? '/portfolio' : '',
+  basePath: isDev ? '' : undefined,
 }
 
 module.exports = nextConfig
