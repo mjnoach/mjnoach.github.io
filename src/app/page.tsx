@@ -1,6 +1,6 @@
 'use client'
 
-import { RefObject, useRef } from 'react'
+import { useRef } from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -21,6 +21,19 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 export default function Home() {
   const parallaxContainer = useRef(null)
   const parallaxBoundary = useRef(null)
+  const menuAnimation = useStackedSlideDownAnimation()
+  const parallaxTarget = useRef(null)
+  const parallaxStyle = useParallaxAnimation(
+    parallaxContainer,
+    parallaxTarget,
+    parallaxBoundary
+  )
+
+  const menuItems: { title: string; sectionId: string }[] = [
+    { title: 'About', sectionId: 'about' },
+    { title: 'Portfolio', sectionId: 'portfolio' },
+    // { title: 'Contact', sectionId:'contact' }
+  ]
 
   return (
     <main className="flex flex-col gap-24 lg:gap-32">
@@ -44,10 +57,23 @@ export default function Home() {
             className="relative flex grow select-none flex-col items-center justify-evenly gap-12 md:flex-row md:items-start md:justify-between"
           >
             <LazyMotion features={domAnimation}>
-              <Menu
-                parallaxContainer={parallaxContainer}
-                parallaxBoundary={parallaxBoundary}
-              />
+              <m.div
+                className="md:mt-24"
+                ref={parallaxTarget}
+                style={parallaxStyle}
+              >
+                <ul className="space-y-5" ref={menuAnimation}>
+                  {menuItems.map(({ title, sectionId }, i) => (
+                    <li key={i}>
+                      <MenuHover>
+                        <Link href={`#${sectionId}`}>
+                          <h3>{title}</h3>
+                        </Link>
+                      </MenuHover>
+                    </li>
+                  ))}
+                </ul>
+              </m.div>
               {/* <div className="self-end h-full w-full max-w-2xl">
                 <Spinner3D />
               </div> */}
@@ -76,42 +102,5 @@ export default function Home() {
       {/* <hr className="w-full" /> */}
       {/* <ContactSection /> */}
     </main>
-  )
-}
-
-type MenuProps = {
-  parallaxContainer: RefObject<HTMLElement>
-  parallaxBoundary: RefObject<HTMLElement>
-}
-
-function Menu(props: MenuProps) {
-  const menuAnimation = useStackedSlideDownAnimation()
-  const parallaxTarget = useRef(null)
-  const parallaxStyle = useParallaxAnimation(
-    props.parallaxContainer,
-    parallaxTarget,
-    props.parallaxBoundary
-  )
-
-  const menuItems: { title: string; sectionId: string }[] = [
-    { title: 'About', sectionId: 'about' },
-    { title: 'Portfolio', sectionId: 'portfolio' },
-    // { title: 'Contact', sectionId:'contact' }
-  ]
-
-  return (
-    <m.div className="md:mt-24" ref={parallaxTarget} style={parallaxStyle}>
-      <ul className="space-y-5" ref={menuAnimation}>
-        {menuItems.map(({ title, sectionId }, i) => (
-          <li key={i}>
-            <MenuHover>
-              <Link href={`#${sectionId}`}>
-                <h3>{title}</h3>
-              </Link>
-            </MenuHover>
-          </li>
-        ))}
-      </ul>
-    </m.div>
   )
 }
