@@ -47,14 +47,16 @@ const entries: EntryProps[] = [
   {
     title: 'Swiper App',
     description: `
-      Swiper App is a demo application with React Native frontend built using the Expo framework. 
-      Backend system features a MariaDB SQL database and a Golang API.`,
+      Swiper App is a demo application in which a user can create a profile and swipe through other users' profiles to find a match.
+      The frontend is build with React Native using the Expo framework.
+      The Backend service features a Golang API and a MariaDB SQL database.
+      `,
     image: { src: swiperAppImg },
     links: {
       github: 'https://github.com/mjnoach/swiper-app',
-      external: '',
+      external: 'https://swiper-app-client.vercel.app',
     },
-    tags: ['Golang', 'React Native', 'SQL'],
+    tags: ['Golang', 'SQL', 'React Native', 'Expo'],
   },
   // {
   //   title: 'Shareboard',
