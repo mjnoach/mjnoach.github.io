@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { RefObject, useRef } from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -11,7 +11,7 @@ import {
   useParallaxAnimation,
   useStackedSlideDownAnimation,
 } from '@/components/animation'
-import { ContactSection } from '@/components/contact/contact-section'
+// import { ContactSection } from '@/components/contact/contact-section'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioSection } from '@/components/portfolio/portfolio-section'
 
@@ -19,15 +19,8 @@ import { itxLogo, topSectionImage } from '@/images'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 
 export default function Home() {
-  const menuAnimation = useStackedSlideDownAnimation()
   const parallaxContainer = useRef(null)
   const parallaxBoundary = useRef(null)
-  const parallaxTarget = useRef(null)
-  const parallaxStyle = useParallaxAnimation(
-    parallaxContainer,
-    parallaxTarget,
-    parallaxBoundary
-  )
 
   return (
     <main className="flex flex-col gap-24 lg:gap-32">
@@ -51,35 +44,10 @@ export default function Home() {
             className="relative flex grow select-none flex-col items-center justify-evenly gap-12 md:flex-row md:items-start md:justify-between"
           >
             <LazyMotion features={domAnimation}>
-              <m.div
-                className="md:mt-24"
-                ref={parallaxTarget}
-                style={parallaxStyle}
-              >
-                <ul className="space-y-5" ref={menuAnimation}>
-                  <li>
-                    <MenuHover>
-                      <Link href="#about">
-                        <h3>About</h3>
-                      </Link>
-                    </MenuHover>
-                  </li>
-                  <li>
-                    <MenuHover>
-                      <Link href="#portfolio">
-                        <h3>Portfolio</h3>
-                      </Link>
-                    </MenuHover>
-                  </li>
-                  <li>
-                    <MenuHover>
-                      <Link href="#contact">
-                        <h3>Contact</h3>
-                      </Link>
-                    </MenuHover>
-                  </li>
-                </ul>
-              </m.div>
+              <Menu
+                parallaxContainer={parallaxContainer}
+                parallaxBoundary={parallaxBoundary}
+              />
               {/* <div className="self-end h-full w-full max-w-2xl">
                 <Spinner3D />
               </div> */}
@@ -106,7 +74,44 @@ export default function Home() {
       {/* <hr className="w-full" /> */}
       <PortfolioSection />
       {/* <hr className="w-full" /> */}
-      <ContactSection />
+      {/* <ContactSection /> */}
     </main>
+  )
+}
+
+type MenuProps = {
+  parallaxContainer: RefObject<HTMLElement>
+  parallaxBoundary: RefObject<HTMLElement>
+}
+
+function Menu(props: MenuProps) {
+  const menuAnimation = useStackedSlideDownAnimation()
+  const parallaxTarget = useRef(null)
+  const parallaxStyle = useParallaxAnimation(
+    props.parallaxContainer,
+    parallaxTarget,
+    props.parallaxBoundary
+  )
+
+  const menuItems: { title: string; sectionId: string }[] = [
+    { title: 'About', sectionId: 'about' },
+    { title: 'Portfolio', sectionId: 'portfolio' },
+    // { title: 'Contact', sectionId:'contact' }
+  ]
+
+  return (
+    <m.div className="md:mt-24" ref={parallaxTarget} style={parallaxStyle}>
+      <ul className="space-y-5" ref={menuAnimation}>
+        {menuItems.map(({ title, sectionId }, i) => (
+          <li key={i}>
+            <MenuHover>
+              <Link href={`#${sectionId}`}>
+                <h3>{title}</h3>
+              </Link>
+            </MenuHover>
+          </li>
+        ))}
+      </ul>
+    </m.div>
   )
 }

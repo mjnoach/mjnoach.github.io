@@ -4,7 +4,7 @@ import { ExternalLinkButton } from '../buttons/external-link'
 import { GithubButton } from '../buttons/github'
 
 import {
-  placeholderImg,
+  // placeholderImg,
   strapiProjectImage,
   swiperAppImg,
   videoExportProjectImg,
@@ -54,17 +54,17 @@ const entries: EntryProps[] = [
     },
     tags: ['Golang', 'React Native', 'Expo'],
   },
-  {
-    title: 'Shareboard',
-    isPlaceholder: true,
-    description: `Update coming soon...`,
-    image: { src: placeholderImg, style: 'object-center' },
-    links: {
-      github: 'https://github.com/mjnoach/shareboard',
-      external: '',
-    },
-    tags: ['PHP', 'HTML/CSS'],
-  },
+  // {
+  //   title: 'Shareboard',
+  //   isPlaceholder: true,
+  //   description: `Update coming soon...`,
+  //   image: { src: placeholderImg, style: 'object-center' },
+  //   links: {
+  //     github: 'https://github.com/mjnoach/shareboard',
+  //     external: '',
+  //   },
+  //   tags: ['PHP', 'HTML/CSS'],
+  // },
 ]
 
 export const PortfolioSection = () => (
