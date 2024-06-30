@@ -4,7 +4,6 @@ import { ExternalLinkButton } from '../buttons/external-link'
 import { GithubButton } from '../buttons/github'
 
 import {
-  // placeholderImg,
   strapiProjectImage,
   swiperAppImg,
   videoExportProjectImg,
@@ -14,12 +13,13 @@ import { cn } from '@/utils'
 const entries: EntryProps[] = [
   {
     title: 'Video Trim & Export Tool',
-    description: `The Video Trim & Export Tool is a browser-based web application that
-        allows users to upload a video, trim it to the desired length, and
-        export it as MP4, MP3, or GIF. Featuring a clean, modern interface, this
-        tool is built with React and leverages ffmpeg.wasm for client-side
-        processing. This ensures quick and secure handling of video files
-        without the need for server-side operations.`,
+    description: `
+      Video Trim & Export Tool is a browser-based web application that
+      allows users to upload a video, trim it to the desired length, and
+      export it as MP4, MP3, or GIF. Featuring a clean, modern interface, this
+      tool is built with React and leverages ffmpeg.wasm for client-side
+      processing. This ensures quick and secure handling of video files
+      without the need for server-side operations.`,
     image: { src: videoExportProjectImg },
     links: {
       github: 'https://github.com/mjnoach/video-export',
@@ -29,13 +29,14 @@ const entries: EntryProps[] = [
   },
   {
     title: 'Strapi Cron Plugin',
-    description: `The Strapi Cron Plugin is an open-source addition to the Strapi CMS,
-        designed to simplify the creation, testing, and monitoring of server
-        jobs directly from the CMS dashboard. Built with Node and React,
-        this plugin adheres to the Strapi Design System guidelines, ensuring
-        seamless integration and a consistent user experience. By providing an
-        intuitive interface, it enhances the functionality of Strapi, improving
-        user workflows and the utility of the CMS.`,
+    description: `
+      Strapi Cron Plugin is an open-source addition to the Strapi CMS,
+      designed to simplify the creation, testing, and monitoring of server
+      jobs directly from the CMS dashboard. Built with Node and React,
+      this plugin adheres to the Strapi Design System guidelines, ensuring
+      seamless integration and a consistent user experience. By providing an
+      intuitive interface, it enhances the functionality of Strapi, improving
+      user workflows and the utility of the CMS.`,
     image: { src: strapiProjectImage },
     links: {
       github: 'https://github.com/innovato/strapi-plugin-cron',
@@ -45,14 +46,15 @@ const entries: EntryProps[] = [
   },
   {
     title: 'Swiper App',
-    isPlaceholder: true,
-    description: `Update coming soon...`,
+    description: `
+      Swiper App is a demo application with React Native frontend built using the Expo framework. 
+      Backend system features a MariaDB SQL database and a Golang API.`,
     image: { src: swiperAppImg },
     links: {
       github: 'https://github.com/mjnoach/swiper-app',
       external: '',
     },
-    tags: ['Golang', 'React Native', 'Expo'],
+    tags: ['Golang', 'React Native', 'SQL'],
   },
   // {
   //   title: 'Shareboard',
