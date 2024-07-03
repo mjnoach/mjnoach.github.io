@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-import { basePath } from '../../../next.config'
 import { Hover } from '../animation'
 
 export const GithubButton = ({ href }: { href: string }) => (
@@ -13,7 +12,7 @@ export const GithubButton = ({ href }: { href: string }) => (
     >
       <Image
         className="/inline-block /object-contain rounded-xl invert dark:bg-black dark:invert-0"
-        src={`${basePath}/github.svg`}
+        src={`/github.svg`}
         alt="GitHub Logo"
         width={45}
         height={45}
