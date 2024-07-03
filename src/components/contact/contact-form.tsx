@@ -1,5 +1,3 @@
-'use client'
-
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -34,8 +32,12 @@ export function ContactForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+  async function onSubmit({ email, message }: z.infer<typeof formSchema>) {
+    console.log('🚀 ~ onSubmit ~ email, message:', { email, message })
+    const res = await fetch('/api/mail', {
+      method: 'POST',
+      body: JSON.stringify({ email, message }),
+    })
   }
 
   return (

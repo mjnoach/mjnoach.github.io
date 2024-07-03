@@ -11,7 +11,7 @@ import {
   useParallaxAnimation,
   useStackedSlideDownAnimation,
 } from '@/components/animation'
-// import { ContactSection } from '@/components/contact/contact-section'
+import { ContactSection } from '@/components/contact/contact-section'
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioSection } from '@/components/portfolio/portfolio-section'
 
@@ -32,7 +32,7 @@ export default function Home() {
   const menuItems: { title: string; sectionId: string }[] = [
     { title: 'About', sectionId: 'about' },
     { title: 'Portfolio', sectionId: 'portfolio' },
-    // { title: 'Contact', sectionId:'contact' }
+    { title: 'Contact', sectionId: 'contact' },
   ]
 
   return (
@@ -100,7 +100,7 @@ export default function Home() {
       {/* <hr className="w-full" /> */}
       <PortfolioSection />
       {/* <hr className="w-full" /> */}
-      {/* <ContactSection /> */}
+      <ContactSection />
     </main>
   )
 }
