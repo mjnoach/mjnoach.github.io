@@ -10,7 +10,7 @@ import {
 } from '@/images'
 import { cn } from '@/utils'
 
-const entries: EntryProps[] = [
+const entries: EntryData[] = [
   {
     title: 'Video Trim & Export Tool',
     description: `
@@ -75,34 +75,23 @@ export const PortfolioSection = () => (
   <section id="portfolio" className="container">
     <h2 className="section-heading">Portfolio</h2>
     <div className="flex flex-col gap-20 lg:gap-24">
-      {entries.map((item, index) =>
-        !(index % 2) ? (
-          <EntryEven
-            key={index}
-            title={item.title}
-            description={item.description}
-            image={item.image}
-            links={item.links}
-            tags={item.tags}
-            isPlaceholder={item.isPlaceholder}
-          />
-        ) : (
-          <EntryOdd
-            key={index}
-            title={item.title}
-            description={item.description}
-            image={item.image}
-            links={item.links}
-            tags={item.tags}
-            isPlaceholder={item.isPlaceholder}
-          />
-        )
-      )}
+      {entries.map((item, index) => (
+        <Entry
+          key={index}
+          title={item.title}
+          description={item.description}
+          image={item.image}
+          links={item.links}
+          tags={item.tags}
+          isPlaceholder={item.isPlaceholder}
+          entryIndex={index}
+        />
+      ))}
     </div>
   </section>
 )
 
-type EntryProps = {
+type EntryData = {
   title: string
   description: string
   image: {
@@ -117,42 +106,47 @@ type EntryProps = {
   isPlaceholder?: boolean
 }
 
-const EntryEven = (props: EntryProps) => {
-  return (
-    <div className="frame-border">
-      <div className="portfolio-entry-container">
-        <div>
-          <Image
-            src={props.image.src}
-            className={cn('portfolio-entry-image', props.image.style)}
-            alt={props.title}
-          />
-        </div>
-        <div className="flex flex-col">
-          <h4 className="portfolio-entry-title">{props.title}</h4>
-          <div className="portfolio-entry-content">
-            <p className={props.isPlaceholder ? 'text-center' : ''}>
-              {props.description}
-            </p>
-            <div className="mt-8 flex flex-col gap-4">
-              <Tags tags={props.tags} style="self-end" />
-              <div className="buttons-row self-end">
-                {props.links.github && (
-                  <GithubButton href={props.links.github} />
-                )}
-                {props.links.external && (
-                  <ExternalLinkButton href={props.links.external} />
-                )}
+type EntryProps = EntryData & {
+  entryIndex: number
+}
+
+const Entry = (props: EntryProps) => {
+  const isEven = props.entryIndex % 2 === 0
+
+  if (isEven)
+    return (
+      <div className="frame-border">
+        <div className="portfolio-entry-container">
+          <div>
+            <Image
+              src={props.image.src}
+              className={cn('portfolio-entry-image', props.image.style)}
+              alt={props.title}
+            />
+          </div>
+          <div className="flex flex-col">
+            <h4 className="portfolio-entry-title">{props.title}</h4>
+            <div className="portfolio-entry-content">
+              <p className={props.isPlaceholder ? 'text-center' : ''}>
+                {props.description}
+              </p>
+              <div className="mt-8 flex flex-col gap-4">
+                <Tags tags={props.tags} style="self-end" />
+                <div className="buttons-row self-end">
+                  {props.links.github && (
+                    <GithubButton href={props.links.github} />
+                  )}
+                  {props.links.external && (
+                    <ExternalLinkButton href={props.links.external} />
+                  )}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  )
-}
+    )
 
-const EntryOdd = (props: EntryProps) => {
   return (
     <div className="frame-border">
       <div className="portfolio-entry-container">
