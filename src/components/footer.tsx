@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { itxLogo } from '@/images'
+import { images } from '@/images'
 
 export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
@@ -21,7 +21,7 @@ export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
           <div>
             <Image
               className="pointer-events-none max-w-8 select-none"
-              src={itxLogo}
+              src={images['logo']}
               alt="Logo"
             />
           </div>

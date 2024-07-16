@@ -3,11 +3,7 @@ import Image, { StaticImageData } from 'next/image'
 import { ExternalLinkButton } from '../buttons/external-link'
 import { GithubButton } from '../buttons/github'
 
-import {
-  strapiProjectImage,
-  swiperAppImg,
-  videoExportProjectImg,
-} from '@/images'
+import { images } from '@/images'
 import { cn } from '@/utils'
 
 const entries: EntryData[] = [
@@ -20,7 +16,7 @@ const entries: EntryData[] = [
       tool is built with React and leverages ffmpeg.wasm for client-side
       processing. This ensures quick and secure handling of video files
       without the need for server-side operations.`,
-    image: { src: videoExportProjectImg },
+    image: { src: images['video-export'] },
     links: {
       github: 'https://github.com/mjnoach/video-export',
       external: 'https://video-export.vercel.app',
@@ -37,7 +33,7 @@ const entries: EntryData[] = [
       seamless integration and a consistent user experience. By providing an
       intuitive interface, it enhances the functionality of Strapi, improving
       user workflows and the utility of the CMS.`,
-    image: { src: strapiProjectImage },
+    image: { src: images['strapi-plugin-cron'] },
     links: {
       github: 'https://github.com/innovato/strapi-plugin-cron',
       external: 'https://www.npmjs.com/package/@innovato/strapi-plugin-cron',
@@ -51,7 +47,7 @@ const entries: EntryData[] = [
       The frontend is build with React Native using the Expo framework.
       The Backend service features a Golang API and a MariaDB SQL database.
       `,
-    image: { src: swiperAppImg },
+    image: { src: images['swiper-app'] },
     links: {
       github: 'https://github.com/mjnoach/swiper-app',
       external: 'https://swiper-app-client.vercel.app',
@@ -62,7 +58,7 @@ const entries: EntryData[] = [
   //   title: 'Shareboard',
   //   isPlaceholder: true,
   //   description: `Update coming soon...`,
-  //   image: { src: placeholderImg, style: 'object-center' },
+  //   image: { src: images["placeholder"], style: 'object-center' },
   //   links: {
   //     github: 'https://github.com/mjnoach/shareboard',
   //     external: '',

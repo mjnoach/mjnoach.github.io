@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import { ContactForm } from './contact-form'
 
-import { contactSectionImage } from '@/images'
+import { images } from '@/images'
 
 export const ContactSection = () => (
   <section id="contact" className="container">
@@ -13,7 +13,7 @@ export const ContactSection = () => (
       </h4>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <Image
-          src={contactSectionImage}
+          src={images['finance-growth']}
           className="pointer-events-none -my-20 -mb-16 select-none dark:invert md:-mt-10 lg:-mb-24 lg:-mt-16 xl:-mb-28 xl:-mt-24"
           alt="Illustration"
         />

@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
 } from '../ui/carousel'
 
-import { strapiProjectImage } from '@/images'
+import { images } from '@/images'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 
 export function PortfolioCarousel({}: React.HTMLAttributes<HTMLElement>) {
@@ -50,7 +50,7 @@ export function PortfolioCarousel({}: React.HTMLAttributes<HTMLElement>) {
                       >
                         <CardContent className="relative flex h-[300px] cursor-pointer items-center justify-center rounded-lg p-6">
                           <Image
-                            src={strapiProjectImage}
+                            src={images['strapi-plugin-cron']}
                             alt={'Strapi'}
                             fill
                             className="object-cover object-left-top"

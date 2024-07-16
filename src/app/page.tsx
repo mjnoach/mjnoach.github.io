@@ -15,7 +15,7 @@ import {
 import { ModeToggle } from '@/components/mode-toggle'
 import { PortfolioSection } from '@/components/portfolio/portfolio-section'
 
-import { itxLogo, topSectionImage } from '@/images'
+import { images } from '@/images'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 
 export default function Home() {
@@ -47,7 +47,7 @@ export default function Home() {
             <h1>Andrzej Sienkiewicz</h1>
             <Image
               className="pointer-events-none my-10 max-w-48 select-none"
-              src={itxLogo}
+              src={images['logo']}
               priority
               alt="Logo"
             />
@@ -85,7 +85,7 @@ export default function Home() {
               >
                 <Image
                   className="pointer-events-none dark:invert"
-                  src={topSectionImage}
+                  src={images['app-launch']}
                   alt="Illustration"
                   priority
                 />

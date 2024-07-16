@@ -1,17 +1,17 @@
-import topSectionImage from '../public/app-launch.svg'
-import contactSectionImage from '../public/finance-growth.svg'
-import itxLogo from '../public/itx.svg'
-import placeholderImg from '../public/placeholder.png'
-import strapiProjectImage from '../public/strapi-plugin-cron.png'
-import swiperAppImg from '../public/swiper-app.png'
-import videoExportProjectImg from '../public/video-editor.png'
+import appLaunch from '../public/app-launch.svg'
+import financeGrowth from '../public/finance-growth.svg'
+import itx from '../public/itx.svg'
+import placeholder from '../public/placeholder.png'
+import strapiPluginCron from '../public/strapi-plugin-cron.png'
+import swiperApp from '../public/swiper-app.png'
+import videoExport from '../public/video-export.png'
 
-export {
-  contactSectionImage,
-  itxLogo,
-  placeholderImg,
-  strapiProjectImage,
-  swiperAppImg,
-  topSectionImage,
-  videoExportProjectImg,
+export const images = {
+  'video-export': videoExport,
+  placeholder,
+  logo: itx,
+  'strapi-plugin-cron': strapiPluginCron,
+  'finance-growth': financeGrowth,
+  'swiper-app': swiperApp,
+  'app-launch': appLaunch,
 }
