@@ -116,8 +116,18 @@ const Entry = (props: EntryProps) => {
           <div>
             <Image
               src={props.image.src}
-              className={cn('portfolio-entry-image', props.image.style)}
+              className={cn(
+                'portfolio-entry-image',
+                props.image.style
+                // 'data-[loaded=false]:animate-pulse data-[loaded=false]:bg-gray-100/10'
+              )}
               alt={props.title}
+              placeholder="blur" // "empty"
+              data-loaded="false"
+              onLoad={(event) => {
+                console.log('🚀 ~ Entry ~ onLoad event:', event)
+                // event.currentTarget.setAttribute('data-loaded', 'true')
+              }}
             />
           </div>
           <div className="flex flex-col">
