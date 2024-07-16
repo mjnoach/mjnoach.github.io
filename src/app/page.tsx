@@ -42,7 +42,7 @@ export default function Home() {
           <BackgroundBubbles />
         </LazyMotion> */}
         <ModeToggle className="absolute right-0 top-0 mr-10 mt-10" />
-        <div className="flex grow flex-col gap-12 px-12 pb-12 pt-24 md:container md:gap-0 md:p-24">
+        <div className="md:section-container flex grow flex-col gap-12 px-12 pb-12 pt-24 md:gap-0 md:p-24">
           <div>
             <h1>Andrzej Sienkiewicz</h1>
             <Image

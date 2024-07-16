@@ -2,7 +2,7 @@ import { GithubButton } from '../buttons/github'
 import { LinkedinButton } from '../buttons/linkedin'
 
 export const AboutSection = () => (
-  <section id="about" className="container">
+  <section id="about" className="section-container">
     <h2 className="section-heading">About</h2>
     <div className="frame-border">
       <div className="space-y-8 p-4 text-justify text-lg sm:p-8">

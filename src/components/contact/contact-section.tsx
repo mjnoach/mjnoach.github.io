@@ -5,7 +5,7 @@ import { ContactForm } from './contact-form'
 import { images } from '@/images'
 
 export const ContactSection = () => (
-  <section id="contact" className="container">
+  <section id="contact" className="section-container">
     <h2 className="section-heading">Contact</h2>
     <div className="frame-border mx-auto flex flex-col bg-background p-4 sm:p-8">
       <h4 className="mb-16 text-center">

@@ -68,7 +68,7 @@ const entries: EntryData[] = [
 ]
 
 export const PortfolioSection = () => (
-  <section id="portfolio" className="container">
+  <section id="portfolio" className="section-container">
     <h2 className="section-heading">Portfolio</h2>
     <div className="flex flex-col gap-20 lg:gap-24">
       {entries.map((item, index) => (

@@ -97,6 +97,9 @@
 }
 
 @layer components {
+  .section-container {
+    @apply container px-[1rem] md:px-[2rem];
+  }
   .section-heading {
     @apply mb-8;
   }

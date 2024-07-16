@@ -5,7 +5,7 @@ import { images } from '@/images'
 export function Footer({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer className="mt-8 border-t bg-background md:mt-12 lg:mt-24">
-      <div className="container space-y-4 py-8 text-center md:py-5">
+      <div className="section-container space-y-4 py-8 text-center md:py-5">
         <div className="text-muted-foreground dark:text-muted">
           Illustrations by{' '}
           <a
