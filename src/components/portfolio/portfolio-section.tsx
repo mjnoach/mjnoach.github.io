@@ -190,12 +190,13 @@ const Tags = (props: TagsProps) => {
   if (!props.tags) return null
 
   return (
-    <div className={cn('flex gap-2', props.style)}>
+    <div className={cn('flex flex-wrap gap-2', props.style)}>
       {props.tags.map((tag, index) => (
         <span
           key={index}
-          // className="me-2 inline-flex items-center rounded bg-blue-100 px-2 py-1 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-          className="/bg-gray-100 /text-gray-800 /dark:bg-gray-700 /dark:text-gray-300 frame-border /mr-2 /mt-2 inline-flex items-center rounded !border-2 px-2 py-1 text-sm font-medium"
+          // className="me-2 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
+          // className="bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300 mr-2 mt-2"
+          className="frame-border inline-flex items-center whitespace-nowrap rounded !border-2 px-2 py-1 text-sm font-medium"
         >
           {tag}
         </span>
