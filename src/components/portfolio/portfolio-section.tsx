@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Image, { StaticImageData } from 'next/image'
 
 import { ExternalLinkButton } from '../buttons/external-link'
@@ -107,28 +109,25 @@ type EntryProps = EntryData & {
 }
 
 const Entry = (props: EntryProps) => {
+  const [loaded, setLoaded] = useState(false)
   const isEven = props.entryIndex % 2 === 0
 
   if (isEven)
     return (
       <div className="frame-border">
         <div className="portfolio-entry-container">
-          <div>
+          <div className="relative h-fit">
             <Image
               src={props.image.src}
-              className={cn(
-                'portfolio-entry-image',
-                props.image.style
-                // 'data-[loaded=false]:animate-pulse data-[loaded=false]:bg-gray-100/10'
-              )}
+              className={cn('portfolio-entry-image', props.image.style)}
               alt={props.title}
-              placeholder="blur" // "empty"
-              data-loaded="false"
               onLoad={(event) => {
-                console.log('🚀 ~ Entry ~ onLoad event:', event)
-                // event.currentTarget.setAttribute('data-loaded', 'true')
+                setLoaded(true)
               }}
             />
+            {!loaded && (
+              <div className="portfolio-entry-image absolute top-0 -z-10 h-full w-full animate-pulse bg-gray-100/10"></div>
+            )}
           </div>
           <div className="flex flex-col">
             <h4 className="portfolio-entry-title">{props.title}</h4>
@@ -175,12 +174,18 @@ const Entry = (props: EntryProps) => {
             </div>
           </div>
         </div>
-        <div className="row-start-1 md:col-start-2">
+        <div className="relative row-start-1 h-fit md:col-start-2">
           <Image
             src={props.image.src}
             className={cn('portfolio-entry-image', props.image.style)}
             alt={props.title}
+            onLoad={(event) => {
+              setLoaded(true)
+            }}
           />
+          {!loaded && (
+            <div className="portfolio-entry-image absolute top-0 -z-10 h-full w-full animate-pulse bg-gray-100/10"></div>
+          )}
         </div>
       </div>
     </div>
