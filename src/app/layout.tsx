@@ -8,6 +8,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 
 import { cn } from '@/utils'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -31,6 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-3LLJYHY35E" />
       <body className={cn(inter.className, fontHeading.variable)}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
